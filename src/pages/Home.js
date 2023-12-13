@@ -6,9 +6,9 @@ const Home = () => {
 
     return (
         <>
-            <main style={{backgroundColor: 'plum'}}>
+            <div style={{backgroundColor: 'plum'}}>
                 <h1>Home</h1>
-            </main>
+            </div>
         </>
     );
 };

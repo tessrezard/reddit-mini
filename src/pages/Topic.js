@@ -8,9 +8,9 @@ function Topic() {
 
     return (
         <>
-            <main style={{backgroundColor: 'aqua'}}>
+            <div style={{backgroundColor: 'aqua'}}>
                 <h1> {topic}</h1>
-            </main>
+            </div>
 
         </>
     )

@@ -9,9 +9,9 @@ function Thread() {
 
     return (
         <>
-            <main style={{backgroundColor: 'plum'}}>
+            <div style={{backgroundColor: 'plum'}}>
                 <h1> {thread} </h1>
-            </main>
+            </div>
 
         </>
     )
