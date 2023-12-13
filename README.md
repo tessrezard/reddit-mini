@@ -5,6 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Main Technologies: 
 
-React/
-Redux toolkit/
-Sass/
+React\
+React Router\
+Redux toolkit\
+Sass\
