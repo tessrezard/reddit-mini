@@ -8,4 +8,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 React\
 React Router\
 Redux toolkit\
-Sass\
+Sass

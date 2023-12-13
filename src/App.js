@@ -6,6 +6,8 @@ import Thread from './pages/Thread';
 import Topic from './pages/Topic';
 
 function App() {
+
+
   return (
     <div className="App">
       <Router>
