@@ -6,8 +6,7 @@
 // @import 'components/code-indenting';
 // @import 'components/sub-sections';
 
-@import 'layout/header';
-@import 'layout/main';
+@import 'layout/header.module';
 
 html {
     font-size: 16px;
@@ -17,6 +16,9 @@ body {
     margin: 1rem;
 }
 
-main {
-
+.headerContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: bisque;
 }

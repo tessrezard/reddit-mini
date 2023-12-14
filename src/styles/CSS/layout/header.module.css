@@ -50,20 +50,7 @@
   justify-content: flex-start;
   align-items: center;
   flex-flow: row wrap;
-  background-color: rgb(252, 252, 252);
-}
-
-html {
-  font-size: 16px;
-}
-
-body {
-  margin: 1rem;
-}
-
-.headerContainer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: bisque;
-}/*# sourceMappingURL=main.css.map */
+  background-color: #fff;
+  border-bottom: 2px solid #dbdade;
+  margin-bottom: 1rem;
+}/*# sourceMappingURL=header.module.css.map */

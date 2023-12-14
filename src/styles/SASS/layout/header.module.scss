@@ -1,0 +1,12 @@
+@import '../components/SearchBar';
+
+.headerContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row wrap;
+    background-color: #fff;
+    border-bottom: 2px solid #dbdade;
+    margin-bottom: 1rem;
+}
+
