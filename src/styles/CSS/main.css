@@ -45,12 +45,145 @@
     margin: 1rem;
   }
 }
+/* ------------------------BURGER------------------------ */
+.burgerContainer {
+  width: 40px;
+  background-color: rgb(234, 237, 239);
+  height: 40px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.burgerContainer .burgerBar {
+  width: 18px;
+  height: 1.5px;
+  border-radius: 3px;
+  background-color: rgb(19, 19, 19);
+  margin: auto;
+  position: relative;
+  margin: auto;
+}
+.burgerContainer .burgerBar:nth-child(1) {
+  bottom: 6px;
+}
+.burgerContainer .burgerBar:nth-child(3) {
+  top: 6px;
+}
+.burgerContainer.active {
+  padding: 5px;
+}
+.burgerContainer.active .burgerBar:nth-child(1) {
+  transform: translateY(0.3rem) rotate(45deg);
+}
+.burgerContainer.active .burgerBar:nth-child(2) {
+  transform: rotate(45deg);
+}
+.burgerContainer.active .burgerBar:nth-child(3) {
+  transform: translateY(-0.9rem) rotate(135deg);
+}
+
+/* -------------------- BURGER KEYFRAME ANIMATIONS-------------------- */
+/* 
+Modern browsers have widely adopted the standard @keyframes syntax, 
+so the need for the -webkit-keyframes prefix has diminished over time. 
+However, it's still common to see both versions for compatibility reasons. 
+*/
+@keyframes toBurgerTopBar {
+  0% {
+    transform: translateY(0px) rotate(45deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-0.3rem) rotate(0deg);
+  }
+}
+@keyframes toActiveTopBar {
+  0% {
+    transform: translateY(-0.3rem) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0.3rem) rotate(45deg);
+  }
+}
+@keyframes toBurgerMiddleBar {
+  0% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes toActiveMiddleBar {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+@keyframes toBurgerBottomBar {
+  0% {
+    transform: translateY(0.3rem) rotate(135deg);
+  }
+  50% {
+    top: 0;
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0.3rem) rotate(0deg);
+  }
+}
+@keyframes toActiveBottomBar {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-0.3rem) rotate(135deg);
+  }
+}
+/* @-webkit-keyframes outBtm {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        -webkit-transform: translateY(-9px) rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: translateY(-9px) rotate(135deg);
+    }
+} */
 .headerContainer {
+  height: 56px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  align-content: center;
   flex-flow: row wrap;
-  background-color: rgb(252, 252, 252);
+  background-color: #fff;
+  border-bottom: 1px solid #e4e2e8;
+}
+
+.title {
+  color: green;
+  margin: 0px;
 }
 
 html {
@@ -58,7 +191,8 @@ html {
 }
 
 body {
-  margin: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .headerContainer {

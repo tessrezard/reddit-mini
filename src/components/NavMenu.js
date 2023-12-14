@@ -5,8 +5,7 @@ import { NavLink, useLocation, Navigate } from "react-router-dom";
 
 function NavMenu() {
 
-    //basic redirect to home page
-    const location = useLocation();
+
     const topics = [
         { id: 1, name: 'Technology', slug: 'technology' },
         { id: 2, name: 'Science', slug: 'science' },
