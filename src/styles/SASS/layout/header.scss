@@ -1,9 +1,11 @@
 @import '../components/SearchBar';
 @import '../components/Burger';
+@import '../components/Dropdown';
+
 @import '../helpers/variables';
 
 .headerContainer {
-    height: 56px;
+    height: $header-height;
     display: flex;
     justify-content: flex-start;
     align-items: center;

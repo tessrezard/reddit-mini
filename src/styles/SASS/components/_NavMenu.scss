@@ -5,15 +5,22 @@
     display: none;
 }
 
+a:-webkit-any-link {
+    color: $reddit-black;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 .menu-container {
     display: block;
     overflow-x: hidden;
     overflow-y: scroll;
     position: sticky;
     top: 56px;
-    width: 264px;
-    width: 264px;
+    width: 249px;
+    height: calc(100vh - $header-height);
     border-right: $reddit-border-grey;
+    background-color: $reddit-background;
 }
 
 
@@ -30,8 +37,10 @@
 .section-title {
     padding-left: 1rem;
     color: $reddit-grey-text;
+    text-transform: capitalize;
     font-weight: 400px;
 }
+
 
 .styled-list {
     list-style-type: none;
@@ -43,7 +52,12 @@
         margin: 0;
         padding: 1rem;
         text-decoration: none;
+        color: $reddit-black;
+        border-radius: 10px;
 
+        &:hover{
+            background-color: $reddit-grey;
+        }
     }
 }
 

@@ -5,6 +5,7 @@ import '../styles/CSS/layout/header.css';
 
 import Burger from './Burger';
 import { useState } from "react";
+import Dropdown from "./Dropdown";
 
 function Header() {
 
@@ -16,6 +17,10 @@ function Header() {
         return <Navigate to='/home' />
     }
 
+    // const handleBurgerClick = () => {
+    //     setDropdownVisible(prev => !prev);
+    // }
+    // console.log('isDropdownVisible', isDropdownVisible);
 
     const handleSearch = (query) => {
         // Implement your search logic here
@@ -31,9 +36,12 @@ function Header() {
                     <p  className='title'> REDDIT MINI </p>
                     <SearchBar onSearch={handleSearch} />
                 </div>
-
             </header>
-
+            <div>
+                {activeBurger? 
+                    <Dropdown/> : <></>
+                }
+            </div>
         </>
     )
 }

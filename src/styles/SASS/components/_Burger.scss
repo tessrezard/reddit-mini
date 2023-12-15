@@ -17,7 +17,7 @@
         width: 18px;
         height: 1.5px;
         border-radius: 3px;
-        background-color: $reddit-back;
+        background-color: $reddit-black;
         margin: auto;
         position: relative;
         margin: auto;
@@ -51,6 +51,12 @@
     //         transform: translateY(-0.9rem) rotate(135deg);
     //     }
     // }
+}
+
+@media (min-width: 1000px){
+    .burgerContainer {
+        display: none;
+    }
 }
 
 /* -------------------- BURGER KEYFRAME ANIMATIONS-------------------- */

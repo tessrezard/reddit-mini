@@ -3,15 +3,22 @@
   display: none;
 }
 
+a:-webkit-any-link {
+  color: rgb(19, 19, 19);
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .menu-container {
   display: block;
   overflow-x: hidden;
   overflow-y: scroll;
   position: sticky;
   top: 56px;
-  width: 264px;
-  width: 264px;
+  width: 249px;
+  height: calc(100vh - 56px);
   border-right: 1px solid rgb(203, 203, 203);
+  background-color: rgb(255, 255, 255);
 }
 
 .menu-section {
@@ -26,6 +33,7 @@
 .section-title {
   padding-left: 1rem;
   color: rgb(87, 111, 118);
+  text-transform: capitalize;
   font-weight: 400px;
 }
 
@@ -39,6 +47,11 @@
   margin: 0;
   padding: 1rem;
   text-decoration: none;
+  color: rgb(19, 19, 19);
+  border-radius: 10px;
+}
+.styled-list li:hover {
+  background-color: rgb(234, 237, 239);
 }
 
 @media (min-width: 1000px) {
@@ -48,21 +61,18 @@
   }
 }
 .searchBarContainer {
-  background-color: plum;
   border-radius: 50px;
   border: 1px solid #f2f1f6;
   box-shadow: 0px 5px 5px #b8b7bc;
-  margin: auto;
   margin-left: 1rem;
   margin-bottom: 1rem;
   width: clamp(250px, 50%, 800px);
+  background-color: rgb(234, 237, 239);
 }
 
 .searchBar {
   display: flex;
-  border: 2px solid back;
   border-radius: 50px;
-  background-color: #fff;
 }
 
 .searchInput {
@@ -72,6 +82,7 @@
   outline: none;
   font-size: 16px;
   border-radius: 50px;
+  background-color: rgb(234, 237, 239);
 }
 
 .searchButton {
@@ -84,7 +95,7 @@
   display: flex;
   align-items: center;
   border-radius: 100%;
-  background-color: #fff;
+  background-color: rgb(234, 237, 239);
 }
 
 @media (min-width: 550px) {
@@ -123,6 +134,11 @@
   top: 6px;
 }
 
+@media (min-width: 1000px) {
+  .burgerContainer {
+    display: none;
+  }
+}
 /* -------------------- BURGER KEYFRAME ANIMATIONS-------------------- */
 /* 
 Modern browsers have widely adopted the standard @keyframes syntax, 
@@ -209,6 +225,21 @@ However, it's still common to see both versions for compatibility reasons.
         -webkit-transform: translateY(-9px) rotate(135deg);
     }
 } */
+.dropdown-menu-page {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 57px;
+  right: 0;
+  bottom: 0;
+  left: 1rem;
+  z-index: 2;
+}
+
+@media (min-width: 1000px) {
+  .dropdown-menu-page {
+    display: none;
+  }
+}
 .headerContainer {
   height: 56px;
   display: flex;
