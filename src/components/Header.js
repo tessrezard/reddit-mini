@@ -1,7 +1,8 @@
 import React from "react";
 import { NavLink, Link, useLocation, Navigate } from "react-router-dom";
 import SearchBar from './SearchBar'; // Adjust the import path as needed
-import styles from '../styles/CSS/layout/header.module.css';
+import '../styles/CSS/layout/header.css';
+
 import Burger from './Burger';
 import { useState } from "react";
 
@@ -25,9 +26,9 @@ function Header() {
     return (
         <>
             <header >
-                <div className={styles.headerContainer}>
+                <div className='headerContainer'>
                 <Burger active={activeBurger} setActive={setActiveBurger}/>
-                    <p  className={styles.title}> REDDIT MINI </p>
+                    <p  className='title'> REDDIT MINI </p>
                     <SearchBar onSearch={handleSearch} />
                 </div>
 

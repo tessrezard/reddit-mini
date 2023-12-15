@@ -3,10 +3,10 @@
 @import 'helpers/variables';
 @import 'helpers/functions';
 
-// @import 'components/code-indenting';
+@import 'components/NavMenu';
 // @import 'components/sub-sections';
 
-@import 'layout/header.module';
+@import 'layout/header';
 
 html {
     font-size: 16px;
@@ -15,12 +15,16 @@ html {
 body {
     margin-left: 1rem;
     margin-right: 1rem;
-
 }
 
-.headerContainer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: bisque;
+.mainContainer {
+}
+
+
+@media (min-width: 1000px){
+
+    .mainContainer {
+        display: flex;
+    }
+    
 }

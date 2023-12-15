@@ -48,13 +48,15 @@
 /* ------------------------BURGER------------------------ */
 .burgerContainer {
   width: 40px;
-  background-color: rgb(234, 237, 239);
   height: 40px;
   border-radius: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+.burgerContainer:hover {
+  background-color: rgb(234, 237, 239);
 }
 .burgerContainer .burgerBar {
   width: 18px;
@@ -70,18 +72,6 @@
 }
 .burgerContainer .burgerBar:nth-child(3) {
   top: 6px;
-}
-.burgerContainer.active {
-  padding: 5px;
-}
-.burgerContainer.active .burgerBar:nth-child(1) {
-  transform: translateY(0.3rem) rotate(45deg);
-}
-.burgerContainer.active .burgerBar:nth-child(2) {
-  transform: rotate(45deg);
-}
-.burgerContainer.active .burgerBar:nth-child(3) {
-  transform: translateY(-0.9rem) rotate(135deg);
 }
 
 /* -------------------- BURGER KEYFRAME ANIMATIONS-------------------- */
@@ -178,10 +168,10 @@ However, it's still common to see both versions for compatibility reasons.
   align-content: center;
   flex-flow: row wrap;
   background-color: #fff;
-  border-bottom: 1px solid #e4e2e8;
+  border-bottom: 1px solid rgb(203, 203, 203);
 }
 
 .title {
   color: green;
   margin: 0px;
-}/*# sourceMappingURL=header.module.css.map */
+}/*# sourceMappingURL=header.css.map */

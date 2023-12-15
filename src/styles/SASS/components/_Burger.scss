@@ -2,13 +2,16 @@
 
 .burgerContainer {
     width: 40px;
-    background-color: $reddit-grey;
     height: 40px;
     border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    &:hover {
+        background-color: $reddit-grey;
+    }
 
     .burgerBar {
         width: 18px;
@@ -18,33 +21,36 @@
         margin: auto;
         position: relative;
         margin: auto;
-          &:nth-child(1) {
+
+        &:nth-child(1) {
             bottom: 6px;
         }
-          &:nth-child(2) {
+
+        &:nth-child(2) {
             bottom: null;
-          }
-          &:nth-child(3) {
+        }
+
+        &:nth-child(3) {
             top: 6px;
-          }
+        }
 
     }
 
-    &.active {
-        padding: 5px;
+    // &.active {
+    //     padding: 5px;
 
-        .burgerBar:nth-child(1) {
-            transform: translateY(0.3rem) rotate(45deg);
-        }
+    //     .burgerBar:nth-child(1) {
+    //         transform: translateY(0.3rem) rotate(45deg);
+    //     }
 
-        .burgerBar:nth-child(2) {
-            transform: rotate(45deg);
-        }
+    //     .burgerBar:nth-child(2) {
+    //         transform: rotate(45deg);
+    //     }
 
-        .burgerBar:nth-child(3) {
-            transform: translateY(-0.9rem) rotate(135deg);
-        }
-    }
+    //     .burgerBar:nth-child(3) {
+    //         transform: translateY(-0.9rem) rotate(135deg);
+    //     }
+    // }
 }
 
 /* -------------------- BURGER KEYFRAME ANIMATIONS-------------------- */

@@ -1,0 +1,59 @@
+// this class is used in Root.js, to hidden/visible the NavMenu in the <main> layout
+//according to width of screen. Breakpoint: 1000px (real reddit is 1200px)
+.wide-nav {
+    visibility: hidden;
+    display: none;
+}
+
+.menu-container {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: sticky;
+    top: 56px;
+    width: 264px;
+    width: 264px;
+    border-right: $reddit-border-grey;
+}
+
+
+.menu-section {
+    margin: 1rem;
+    border-bottom: $reddit-border-grey;
+}
+
+.section-title-container {
+    padding: 1rem;
+
+}
+
+.section-title {
+    padding-left: 1rem;
+    color: $reddit-grey-text;
+    font-weight: 400px;
+}
+
+.styled-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 1rem;
+
+    li {
+        margin: 0;
+        padding: 1rem;
+        text-decoration: none;
+
+    }
+}
+
+
+@media (min-width: 1000px) {
+    .wide-nav {
+        visibility: visible;
+        display: block;
+
+    }
+
+
+}

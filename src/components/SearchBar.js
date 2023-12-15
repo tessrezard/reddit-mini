@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa'; // Import the magnifying-glass icon from react-icons
-import styles from '../styles/CSS/layout/header.module.css';
+import '../styles/CSS/layout/header.css';
 
 
 const SearchBar = ({ onSearch }) => {
@@ -17,9 +17,9 @@ const SearchBar = ({ onSearch }) => {
 
     return (
         <>
-            <div className={styles.searchBarContainer}>
-                <form onSubmit={handleSubmit} className={styles.searchBar}>
-                    <button type="submit" className={styles.searchButton}>
+            <div className='searchBarContainer'>
+                <form onSubmit={handleSubmit} className='searchBar'>
+                    <button type="submit" className='searchButton'>
                         <FaSearch /> {/* Magnifying-glass icon */}
                     </button>
                     <input
@@ -27,7 +27,7 @@ const SearchBar = ({ onSearch }) => {
                         placeholder="Search..."
                         value={query}
                         onChange={handleInputChange}
-                        className={styles.searchInput}
+                        className='searchInput'
                     />
                     
                 </form>

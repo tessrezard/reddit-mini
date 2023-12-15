@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import styles from './styles/CSS/main.css'
+import './styles/CSS/main.css'
 import Header from './components/Header';
 import NavMenu from './components/NavMenu';
 const Root = () => {
@@ -11,11 +11,14 @@ const Root = () => {
                     <Header />
                 </header>
                 <main>
-                    {/* this nav is for wide screens */}
-                    <nav className={styles.wideNav}>
-                        <NavMenu/>
-                    </nav>
-                    <Outlet />
+                    <div className='mainContainer'>
+                        {/* this nav is for wide screens */}
+                        <nav className='wide-nav'>
+                            <NavMenu />
+                        </nav>
+                        <Outlet />
+                    </div>
+
                 </main>
             </div>
 

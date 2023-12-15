@@ -1,17 +1,16 @@
 @import '../components/SearchBar';
 @import '../components/Burger';
+@import '../helpers/variables';
 
 .headerContainer {
     height: 56px;
-
     display: flex;
     justify-content: flex-start;
     align-items: center;
     align-content: center;
-
     flex-flow: row wrap;
     background-color: #fff;
-    border-bottom: 1px solid #e4e2e8;
+    border-bottom: $reddit-border-grey;
 }
 
 .title {

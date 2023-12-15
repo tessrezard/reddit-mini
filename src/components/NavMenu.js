@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, useLocation, Navigate } from "react-router-dom";
+import '../styles/CSS/main.css';
 
 
 
@@ -16,15 +17,32 @@ function NavMenu() {
     ]
     return (
         <>
-            <ul>
-                {topics.map((topic) => (
-                <li key={topic.id}>
-                    <NavLink to={`/topic/${topic.slug}`} activeClassName="active">
-                    {topic.name}
-                    </NavLink>
-                </li>
-                ))}
-            </ul>
+            <div className='menu-container'>
+            <div className="menu-section">
+                <div className="section-title-container">
+                    <p className="section-title">
+                        Popular
+                    </p>
+                </div>
+            </div>
+                <div className="menu-section">
+                <div className="section-title-container">
+                    <p className="section-title">
+                        Topics
+                    </p>
+                </div>
+                <ul className="styled-list">
+                    {topics.map((topic) => (
+                        <li key={topic.id}>
+                            <NavLink to={`/topic/${topic.slug}`} activeClassName="active">
+                                {topic.name}
+                            </NavLink>
+                        </li>
+                    ))}
+                </ul>
+                </div>
+            </div>
+
         </>
 
     )
