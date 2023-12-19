@@ -9,3 +9,10 @@ React\
 React Router\
 Redux toolkit\
 Sass
+
+
+## structure and naming concentions in relation to reddit : 
+
+A Topic is a collection of posts relating to that subject.
+If you click on a post, you will go to it'a thread.
+The Thread is the amalgam of the post and the comments realting to that post. 

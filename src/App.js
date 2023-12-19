@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Root from './Root';
 import Home from './pages/Home';
 import Thread from './pages/Thread';
-import Topic from './pages/Topic';
+import Subreddit from './pages/Subreddit';
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Root />}>
             <Route path="home" element={<Home />} />
-            <Route path="topic/:topic" element={<Topic />} />
+            <Route path="topic/:topic" element={<Subreddit />} />
             <Route path="thread/:thread" element={<Thread />} />
           </Route>
         </Routes>

@@ -32,6 +32,7 @@ function Header() {
         <>
             <header >
                 <div className='headerContainer'>
+                
                 <Burger active={activeBurger} setActive={setActiveBurger}/>
                     <p  className='title'> REDDIT MINI </p>
                     <SearchBar onSearch={handleSearch} />
