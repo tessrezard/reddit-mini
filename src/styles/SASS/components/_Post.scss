@@ -1,0 +1,45 @@
+.post-layout-container {
+    border-top: $reddit-border-grey;
+    padding: 0.25rem;
+}
+
+.post-container {
+    border-radius: $rounded-rectangle;
+    padding: 1rem;
+
+    &:hover {
+        background-color: $reddit-grey;
+    }
+
+    .post-header {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .post-main {
+        .post-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .flair {
+            width: fit-content;
+            border-radius: $rounded-rectangle;
+            padding: 2px 7px; // Top/Bottom 2px, Left/Right 7px
+            font-size: 0.75rem;
+        }
+
+        .self-text-preview-wrapper {
+            max-height: 300px;
+            overflow: hidden;
+            line-height: 1.25rem;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        }
+    
+}
+
+.comment-icon {
+    color: $reddit-black;
+}

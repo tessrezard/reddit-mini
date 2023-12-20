@@ -60,6 +60,45 @@ a:-webkit-any-link {
     display: block;
   }
 }
+.post-layout-container {
+  border-top: 1px solid rgb(203, 203, 203);
+  padding: 0.25rem;
+}
+
+.post-container {
+  border-radius: 18px;
+  padding: 1rem;
+}
+.post-container:hover {
+  background-color: rgb(234, 237, 239);
+}
+.post-container .post-header {
+  display: flex;
+  justify-content: flex-start;
+}
+.post-container .post-main .post-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.post-container .post-main .flair {
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 18px;
+  padding: 2px 7px;
+  font-size: 0.75rem;
+}
+.post-container .post-main .self-text-preview-wrapper {
+  max-height: 300px;
+  overflow: hidden;
+  line-height: 1.25rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.comment-icon {
+  color: rgb(19, 19, 19);
+}
+
 .searchBarContainer {
   border-radius: 50px;
   border: 1px solid #f2f1f6;

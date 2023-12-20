@@ -10,7 +10,6 @@ function Burger({ active, setActive }) {
     const handleClick = () => {
         setActive(prev => !prev);
     };
-    console.log('active', active);
 
 
     return (

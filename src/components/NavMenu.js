@@ -18,28 +18,30 @@ function NavMenu() {
     return (
         <>
             <div className='menu-container'>
-            <div className="menu-section">
-                <div className="section-title-container">
-                    <p className="section-title">
-                        Popular
-                    </p>
-                </div>
-            </div>
                 <div className="menu-section">
-                <div className="section-title-container">
-                    <p className="section-title">
-                        TOPICS
-                    </p>
-                </div>
-                <ul className="styled-list">
-                    {topics.map((topic) => (
-                        <li key={topic.id}>
-                            <NavLink to={`/topic/${topic.slug}`} activeClassName="active">
-                                {topic.name}
+                    <div className="section-title-container">
+                        <p className="section-title">
+                            <NavLink to={`/topic/popular`} activeclassname="active">
+                                Popular
                             </NavLink>
-                        </li>
-                    ))}
-                </ul>
+                        </p>
+                    </div>
+                </div>
+                <div className="menu-section">
+                    <div className="section-title-container">
+                        <p className="section-title">
+                            TOPICS
+                        </p>
+                    </div>
+                    <ul className="styled-list">
+                        {topics.map((topic) => (
+                            <li key={topic.id}>
+                                <NavLink to={`/topic/${topic.slug}`} activeclassname="active">
+                                    {topic.name}
+                                </NavLink>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
 
