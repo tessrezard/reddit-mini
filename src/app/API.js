@@ -24,7 +24,7 @@ export const getSubreddits = async () => {
 
 export const getSubredditPosts = async (subreddit) => {
   try {
-    const response = await fetch(`${API_ROOT}${subreddit}.json`);
+    const response = await fetch(`${API_ROOT}/r/${subreddit}.json`);
     if (!response.ok) {
       throw new Error(`Error fetching data for ${subreddit}: ${response.statusText}`);
     }

@@ -11,8 +11,8 @@ function Subreddit({ subreddit }) {
     const { data, loading, error } = useSelector((state) => state.subredditPosts);
 
     useEffect(() => {
-        dispatch(fetchSubredditPosts(subreddit));
-    }, [dispatch, subreddit]);
+        dispatch(fetchSubredditPosts(topic));
+    }, [dispatch, topic]);
 
     if (loading) {
         return <div>Loading...</div>;
