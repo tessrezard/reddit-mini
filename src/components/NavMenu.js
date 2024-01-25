@@ -21,7 +21,7 @@ function NavMenu() {
                 <div className="menu-section">
                     <div className="section-title-container">
                         <p className="section-title">
-                            <NavLink to={`/topic/popular`} activeclassname="active">
+                            <NavLink to={`/r/popular`} activeclassname="active">
                                 Popular
                             </NavLink>
                         </p>
@@ -36,7 +36,7 @@ function NavMenu() {
                     <ul className="styled-list">
                         {topics.map((topic) => (
                             <li key={topic.id}>
-                                <NavLink to={`/topic/${topic.slug}`} activeclassname="active">
+                                <NavLink to={`/r/${topic.slug}`} activeclassname="active">
                                     {topic.name}
                                 </NavLink>
                             </li>

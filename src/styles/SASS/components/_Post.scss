@@ -3,17 +3,33 @@
     padding: 0.25rem;
 }
 
+//this is the overlay for the preview of longer self-text
+//put here to that hover of post-container can affect color or overlay
+#overlay {
+    content: '';
+    height: 80px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(253, 253, 253, 0.01));
+    position: absolute;
+    display: block;
+    bottom: 0;
+    width: 100%;
+}
+
 .post-container {
     border-radius: $rounded-rectangle;
     padding: 1rem;
 
     &:hover {
         background-color: $reddit-grey;
+
+        #overlay {
+            background: linear-gradient(to top, $reddit-grey, rgba(253, 253, 253, 0.01));
+        }
     }
 
     .post-header {
         display: flex;
-        justify-content: flex-start;
+        flex-flow: column;
     }
 
     .post-main {
@@ -36,8 +52,16 @@
             position: relative;
             margin-bottom: 1rem;
         }
+
+        .see-whole-post {
+            display: block;
+            color: $reddit-blue-link;
+            &:hover{
+                text-decoration: underline;
+            }
         }
-    
+    }
+
 }
 
 .comment-icon {

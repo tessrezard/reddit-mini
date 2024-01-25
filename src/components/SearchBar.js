@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaSearch } from 'react-icons/fa'; // Import the magnifying-glass icon from react-icons
+import { FaSearch } from 'react-icons/fa'; // magnifying-glass icon
 import '../styles/CSS/layout/header.css';
 
 

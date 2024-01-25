@@ -14,8 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Root />}>
             <Route path="home" element={<Home />} />
-            <Route path="topic/:topic" element={<Subreddit />} />
-            <Route path="thread/:thread" element={<Thread />} />
+            <Route path="r/:subreddit" element={<Subreddit />} />
+            <Route path="comments/:thread" element={<Thread />} />
           </Route>
         </Routes>
       </Router>

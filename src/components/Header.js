@@ -32,15 +32,21 @@ function Header() {
         <>
             <header >
                 <div className='headerContainer'>
-                
-                <Burger active={activeBurger} setActive={setActiveBurger}/>
-                    <p  className='title'> REDDIT MINI </p>
+
+                    <Burger active={activeBurger} setActive={setActiveBurger} />
+                    <div className="reddit-mini-logo">
+                    <div className="logo-tail"/>
+
+                        <div className="logo-circle"/>
+
+                    </div>
+                    <p className='title'> reddit mini </p>
                     <SearchBar onSearch={handleSearch} />
                 </div>
             </header>
             <div>
-                {activeBurger? 
-                    <Dropdown/> : <></>
+                {activeBurger ?
+                    <Dropdown /> : <></>
                 }
             </div>
         </>
