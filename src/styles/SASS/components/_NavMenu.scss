@@ -3,6 +3,11 @@
 .wide-nav {
     visibility: hidden;
     display: none;
+
+    @media (min-width: 1000px) {
+        visibility: visible;
+        display: block;
+    }
 }
 
 a:-webkit-any-link {
@@ -61,13 +66,3 @@ a:-webkit-any-link {
     }
 }
 
-
-@media (min-width: 1000px) {
-    .wide-nav {
-        visibility: visible;
-        display: block;
-
-    }
-
-
-}

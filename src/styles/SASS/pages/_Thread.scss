@@ -1,0 +1,14 @@
+.thread-page-container{
+    display: flex; 
+    flex-flow: column;
+    overflow-x: hidden;
+}
+//TO DO
+//the thread page container includes two columns when >850px wide: the thread & its corresponding subreddit 
+
+
+.thread-post-container {
+    border-radius: $rounded-rectangle;
+    padding: 1rem;
+    
+}

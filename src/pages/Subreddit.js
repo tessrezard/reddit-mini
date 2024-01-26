@@ -30,6 +30,11 @@ function Subreddit() {
         return <div>Error: {error}</div>;
     }
 
+
+
+
+
+
     return (
         <div>
 
@@ -41,13 +46,9 @@ function Subreddit() {
             <h1>Posts for {subreddit}</h1>
             <ul style={{ listStyle: 'none' }}>
                 {data.map((post) => (
-                    <>
-                        <div onClick={() => handleLinkClick(post)}>
+                        <div onClick={() => handleLinkClick(post)} key={post.id}>
                             <Post post={post} />
                         </div>
-
-                    </>
-
                 ))}
             </ul>
         </div>

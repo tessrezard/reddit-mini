@@ -3,6 +3,12 @@
   visibility: hidden;
   display: none;
 }
+@media (min-width: 1000px) {
+  .wide-nav {
+    visibility: visible;
+    display: block;
+  }
+}
 
 a:-webkit-any-link {
   color: rgb(19, 19, 19);
@@ -55,12 +61,6 @@ a:-webkit-any-link {
   background-color: rgb(234, 237, 239);
 }
 
-@media (min-width: 1000px) {
-  .wide-nav {
-    visibility: visible;
-    display: block;
-  }
-}
 .post-layout-container {
   border-top: 1px solid rgb(203, 203, 203);
   padding: 0.25rem;
@@ -86,38 +86,146 @@ a:-webkit-any-link {
 .post-container:hover #overlay {
   background: linear-gradient(to top, rgb(234, 237, 239), rgba(253, 253, 253, 0.01));
 }
-.post-container .post-header {
+
+.post-header {
+  display: flex;
+  flex-flow: column;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  margin-top: 1rem;
+}
+.post-header .subreddit-name {
+  font-weight: 700;
+  margin: 0;
+}
+.post-header .author-name {
+  margin: 0;
+}
+
+.post-main {
   display: flex;
   flex-flow: column;
 }
-.post-container .post-main .post-title {
-  font-size: 1.25rem;
-  font-weight: 500;
+.post-main .post-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
-.post-container .post-main .flair {
+@media (min-width: 750px) {
+  .post-main .post-title {
+    font-size: 1.5rem;
+  }
+}
+.post-main .lead-img {
+  height: 550px;
+  width: 750px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  background-color: rgb(54, 62, 64);
+  border-radius: 18px;
+  margin: auto;
+}
+.post-main .thumbnail-img {
+  height: 100px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  align-self: flex-start;
+}
+.post-main .flair {
   width: -moz-fit-content;
   width: fit-content;
   border-radius: 18px;
   padding: 2px 7px;
   font-size: 0.75rem;
+  margin: 0;
 }
-.post-container .post-main .self-text-preview-wrapper {
+.post-main .self-text-preview-wrapper {
   max-height: 300px;
   overflow: hidden;
   line-height: 1.25rem;
   position: relative;
   margin-bottom: 1rem;
 }
-.post-container .post-main .see-whole-post {
+.post-main .see-whole-post {
   display: block;
   color: rgb(0, 69, 172);
 }
-.post-container .post-main .see-whole-post:hover {
+.post-main .see-whole-post:hover {
   text-decoration: underline;
+}
+
+.post-bubbles {
+  display: flex;
+  flex-flow: row;
+  font-size: 0.75rem;
+}
+
+.post-ups-bubble {
+  background-color: rgb(203, 203, 203);
+  width: 80px;
+  height: 30px;
+  display: flex;
+  margin: 0.5rem;
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18px;
+}
+.post-ups-bubble:hover {
+  background-color: rgb(181, 181, 181);
 }
 
 .comment-icon {
   color: rgb(19, 19, 19);
+  margin-right: 2.5px;
+}
+
+.post-comments-bubble {
+  background-color: rgb(203, 203, 203);
+  width: 60px;
+  height: 30px;
+  display: flex;
+  margin: 0.5rem;
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18px;
+}
+.post-comments-bubble:hover {
+  background-color: rgb(181, 181, 181);
+}
+
+.comment-icon {
+  color: rgb(19, 19, 19);
+  margin-right: 2.5px;
+}
+
+.comment-header .comment-author-name {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  margin-top: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.comment-body {
+  font-size: 0.875rem;
+  margin: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.comment-ups {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  height: 1rem;
+}
+.comment-ups .comment-ups-icon {
+  font-size: 1rem;
+  margin: 0.25rem;
+}
+.comment-ups .comment-ups-number {
+  font-weight: 600;
 }
 
 .searchBarContainer {
@@ -349,6 +457,17 @@ However, it's still common to see both versions for compatibility reasons.
     display: flex;
   }
 }
+.thread-page-container {
+  display: flex;
+  flex-flow: column;
+  overflow-x: hidden;
+}
+
+.thread-post-container {
+  border-radius: 18px;
+  padding: 1rem;
+}
+
 html {
   font-size: 16px;
 }
@@ -356,7 +475,7 @@ html {
 body {
   margin-left: 1rem;
   margin-right: 1rem;
-  font-family: "IBMPlexSans", verdana, arial, helvetica, sans-serif;
+  font-family: -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
 @media (min-width: 1000px) {
