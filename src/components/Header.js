@@ -17,17 +17,10 @@ function Header() {
         return <Navigate to='/home' />
     }
 
-    // const handleBurgerClick = () => {
-    //     setDropdownVisible(prev => !prev);
-    // }
-    // console.log('isDropdownVisible', isDropdownVisible);
 
-    const handleSearch = (query) => {
-        // Implement your search logic here
-        console.log('Search query:', query);
-        // You can perform actions like fetching data based on the search query
-    };
 
+
+      
     return (
         <>
             <header >
@@ -37,18 +30,18 @@ function Header() {
                     <div className="reddit-mini-logo">
                     <div className="logo-tail"/>
 
-                        <div className="logo-circle"> 
+                        <Link to={`/`}className="logo-circle"> 
                          {/* <div className="bear"> 🐻‍❄️</div> */}
-                        </div>
+                        </Link>
                         
                     </div>
                     <p className='title'> reddit mini </p>
-                    <SearchBar onSearch={handleSearch} />
+                    <SearchBar/>
                 </div>
             </header>
             <div>
                 {activeBurger ?
-                    <Dropdown /> : <></>
+                    <Dropdown  closeDropdown={setActiveBurger} /> : <></>
                 }
             </div>
         </>

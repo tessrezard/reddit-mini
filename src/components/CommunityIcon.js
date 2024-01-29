@@ -106,10 +106,6 @@ const CommunityIcon = ({ subreddit }) => {
     const [imageError, setImageError] = useState(false);
     const communityIconUrl = subreddit.icon_img || subreddit.community_icon;
 
-    console.log('subreddit.title', subreddit.title);
-    console.log('subreddit.icon_img', subreddit.icon_img);
-    console.log('subreddit.community_icon', subreddit.community_icon);
-
     const handleImageError = () => {
         setImageError(true);
     };

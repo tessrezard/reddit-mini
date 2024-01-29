@@ -1,16 +1,21 @@
-import React from "react";
+import React , { useEffect, useRef }from "react";
 import NavMenu from "./NavMenu";
 import '../styles/CSS/layout/header.css';
 
-const Dropdown = () => {
+const Dropdown = ({ closeDropdown }) => {
+
+    const handleClick = () => {
+        closeDropdown(prev => !prev);
+    };
+
 
 
     return (
-        <>
-            <div className="dropdown-menu-page">
+        <div onClick={handleClick} className="dropdown-menu-page">
+            <div >
                 <NavMenu/>
             </div>
-        </>
+        </div>
     );
 };
 

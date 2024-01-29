@@ -4,7 +4,7 @@ import '../styles/CSS/layout/header.css';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from React Router
 
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = () => {
     const navigate = useNavigate(); // Access the navigate function from React Router
     const [query, setQuery] = useState('');
 
@@ -14,7 +14,6 @@ const SearchBar = ({ onSearch }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSearch(query);
         navigate(`/search/${query}`);
 
     };
