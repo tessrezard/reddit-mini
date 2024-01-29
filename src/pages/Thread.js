@@ -69,6 +69,7 @@ function Thread() {
 
     useEffect(() => {
         dispatch(fetchPostComments(permalink));
+        window.scrollTo(0, 0);
     }, [dispatch, permalink]);
 
 

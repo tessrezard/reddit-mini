@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa'; // magnifying-glass icon
 import '../styles/CSS/layout/header.css';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from React Router
 
 
 const SearchBar = ({ onSearch }) => {
+    const navigate = useNavigate(); // Access the navigate function from React Router
     const [query, setQuery] = useState('');
 
     const handleInputChange = (e) => {
@@ -13,6 +15,8 @@ const SearchBar = ({ onSearch }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         onSearch(query);
+        navigate(`/search/${query}`);
+
     };
 
     return (

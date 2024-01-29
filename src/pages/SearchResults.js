@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSubredditPosts, fetchSearch } from '../store/thunks';
+import { fetchSearch } from '../store/thunks';
 import Post from '../components/Post'
 import '../styles/CSS/main.css';
 
 
-function Subreddit() {
-    const { subreddit } = useParams();
+function SearchResults() {
+    const { term } = useParams();
 
     const navigate = useNavigate();
 
@@ -18,27 +18,32 @@ function Subreddit() {
 
 
     const dispatch = useDispatch();
-    const { data, loading, error } = useSelector((state) => state.subredditPosts);
-    // const { data, loading, error  } = useSelector((state) => state.search)
+    // const { data, loading, error } = useSelector((state) => state.subredditPosts);
+    const { data, loading, error  } = useSelector((state) => state.search)
 
-    let isPopular;
-    if (subreddit === 'popular') {
-        isPopular = true
-    }
 
     useEffect(() => {
         window.scrollTo(0, 0);
         const fetchData = async () => {
             try {
-              dispatch(fetchSubredditPosts(subreddit));
+              // Dispatch actions to fetch data from both APIs
+              dispatch(fetchSearch(term));
+            //   dispatch(fetchSubredditPosts(subreddit));
             } catch (error) {
               console.error('Error fetching data:', error);
             }
           };
+
+      
           fetchData();
 
-    }, [dispatch, subreddit]);
+    }, [dispatch, term]);
 
+
+    console.log('Redux State:', {
+        search: { data, loading, error },
+        // search: { searchData, searchLoading, searchError },
+      });
     
     if (loading) {
         return <div>Loading...</div>;
@@ -47,16 +52,20 @@ function Subreddit() {
         return <div>Error: {error}</div>;
     }
 
+    if (loading) {
+        return <div>Search Loading...</div>;
+    }
+    if (error) {
+        return <div> Search Error: {error}</div>;
+    }
+
+    console.log('searchData', data);
+
     return (
         <div>
-            {isPopular ?
-                (<></>)
-                : 
-                (<div className="subreddit-header">
-                    <div className="subreddit-icon"></div>
-                    <h1 className="subreddit-title">r/{subreddit}</h1>
-                </div>)
-            }
+            <div className="subreddit-header">
+                    <h1 className="subreddit-title">search : {term}</h1>
+                </div>
 
             <ul style={{ listStyle: 'none' }}>
                 {data.map((post) => (
@@ -69,7 +78,7 @@ function Subreddit() {
     );
 };
 
-export default Subreddit;
+export default SearchResults;
 
 
 

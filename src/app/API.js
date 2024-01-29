@@ -20,6 +20,8 @@ export const getSubreddits = async () => {
   };
 
 
+
+
 //GET POSTS for subreddit/topic
 
 export const getSubredditPosts = async (subreddit) => {
@@ -52,3 +54,24 @@ export const getPostComments = async (permalink) => {
     throw error;
   }
 };
+
+
+
+//////// 
+  //GET SUBREDDIT INFO
+
+  export const getSearch = async (term) => {
+    try {
+      const response = await fetch(`${API_ROOT}/search.json?q=${term}`);
+      if (!response.ok) {
+        throw new Error(`Error fetching data for ${term}: ${response.statusText}`);
+      }
+      const json = await response.json();
+      console.log('json', json.data.children.map((post) => post.data));
+      return json.data.children.map((post) => post.data);
+    } catch (error) {
+      console.error(`Error fetching data for ${term}:`, error);
+      throw error;
+    }
+
+  };

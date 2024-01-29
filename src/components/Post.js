@@ -33,8 +33,6 @@ const Post = ({ post }) => {
     // FIND LEAD IMAGE
     let leadImg;
     let thumbnailImg;
-    console.log('----------------------')
-    console.log('TITLE : ', post.title);
 
     if (post.url) {
         if (post.url.endsWith('.jpeg') || post.url.endsWith('.jpg') || post.url.endsWith('.png')) {
@@ -59,9 +57,6 @@ const Post = ({ post }) => {
     //     }
     // }
 
-
-    console.log('leadImg', leadImg);
-    console.log('thumbnailImg', thumbnailImg);
 
     // ----------------------------------------------------------------
     useEffect(() => {

@@ -1,6 +1,6 @@
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getSubredditPosts, getSubreddits, getPostComments } from '../app/API';
+import { getSubredditPosts, getSubreddits, getPostComments, getSearch } from '../app/API';
 
 // export const fetchSubreddits = createAsyncThunk('subreddits/fetchSubreddits', async () => {
 //   try {
@@ -33,6 +33,17 @@ export const fetchPostComments = createAsyncThunk('postComments/fetchPostComment
   try {
     const comments = await getPostComments(permalink);
     return comments;
+  } catch (error) {
+    throw error;
+  }
+});
+
+
+export const fetchSearch = createAsyncThunk('search/fetchSearch', async (term) => {
+  try {
+    const results = await getSearch(term);
+    console.log('results', results);
+    return results;
   } catch (error) {
     throw error;
   }

@@ -1,0 +1,21 @@
+.subreddit-header{
+    height: 100px;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+.subreddit-title{
+    margin: 0;
+    padding-left: 0.75rem;
+    padding-top: 1rem;
+    letter-spacing: 0.25px;
+}
+
+.subreddit-icon {
+    height: 80px;
+    width: 80px;
+    background-color: $reddit-grey;
+    border-radius: 100%;
+}
