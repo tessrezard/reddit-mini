@@ -37,8 +37,10 @@ function Header() {
                     <div className="reddit-mini-logo">
                     <div className="logo-tail"/>
 
-                        <div className="logo-circle"/>
-
+                        <div className="logo-circle"> 
+                         {/* <div className="bear"> 🐻‍❄️</div> */}
+                        </div>
+                        
                     </div>
                     <p className='title'> reddit mini </p>
                     <SearchBar onSearch={handleSearch} />

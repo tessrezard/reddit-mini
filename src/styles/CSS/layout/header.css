@@ -212,6 +212,13 @@ However, it's still common to see both versions for compatibility reasons.
   height: 30px;
   background-color: rgb(255, 69, 0);
   border-radius: 100%;
+  font-size: 1.5rem;
+}
+
+.bear {
+  position: relative;
+  left: 2.95px;
+  top: 1px;
 }
 
 .title {

@@ -137,21 +137,22 @@ const Post = ({ post }) => {
 
                         <div className='post-bubbles'>
 
-                        <div className='post-ups-bubble'>
-                            <p className='ups-icon'>
-                                ⇧ 
-                            </p>
-                            <p className='ups-number'>
-                                {post.ups}
-                            </p>
-                            <p className='ups-icon'>
-                                ⇩
-                            </p>
-                        </div>
-                        <div className='post-comments-bubble'>
-                            <FaComment className='comment-icon' />
-                            {post.num_comments}
-                        </div>
+                            <div className='post-ups-bubble'>
+                                <p className='ups-icon'>
+                                    ⇧
+                                </p>
+                                <p className='ups-number'>
+                                    {post.ups}
+                                </p>
+                                <p className='ups-icon'>
+                                    ⇩
+                                </p>
+                            </div>
+                            <div className='post-comments-bubble'>
+                                <FaComment className='comment-icon' />
+                                {post.num_comments}
+                            </div>
+
                         </div>
 
                     </div>
