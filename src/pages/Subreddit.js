@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSubredditPosts, fetchSearch } from '../store/thunks';
+import { fetchSubredditPosts, fetchAboutSubreddit } from '../store/thunks';
 import Post from '../components/Post'
 import '../styles/CSS/main.css';
+import SubredditHeader from '../components/SubredditHeader'
 
 
 function Subreddit() {
@@ -19,7 +20,7 @@ function Subreddit() {
 
     const dispatch = useDispatch();
     const { data, loading, error } = useSelector((state) => state.subredditPosts);
-    // const { data, loading, error  } = useSelector((state) => state.search)
+    const { dataAbout, loadingAbout, errorAbout } = useSelector((state) => state.aboutSubreddit);
 
     let isPopular;
     if (subreddit === 'popular') {
@@ -31,6 +32,7 @@ function Subreddit() {
         const fetchData = async () => {
             try {
               dispatch(fetchSubredditPosts(subreddit));
+              dispatch(fetchAboutSubreddit(subreddit));
             } catch (error) {
               console.error('Error fetching data:', error);
             }
@@ -47,15 +49,23 @@ function Subreddit() {
         return <div>Error: {error}</div>;
     }
 
+
     return (
-        <div>
+        <div className="subreddit-page-container">
             {isPopular ?
                 (<></>)
                 : 
-                (<div className="subreddit-header">
-                    <div className="subreddit-icon"></div>
-                    <h1 className="subreddit-title">r/{subreddit}</h1>
-                </div>)
+                (
+                <>
+                <SubredditHeader subreddit={dataAbout}/>
+                
+                <div>
+                    <p>{dataAbout.title}</p>
+                    <p>{dataAbout.public_description}</p>
+
+                </div>
+
+                </>)
             }
 
             <ul style={{ listStyle: 'none' }}>

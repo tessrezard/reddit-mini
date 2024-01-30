@@ -58,7 +58,7 @@ export const getPostComments = async (permalink) => {
 
 
 //////// 
-  //GET SUBREDDIT INFO
+  //SEARCH FROM SEARCH TERM
 
   export const getSearch = async (term) => {
     try {
@@ -75,3 +75,22 @@ export const getPostComments = async (permalink) => {
     }
 
   };
+
+
+
+//GET ABOUT SUBREDDIT
+
+export const getAboutSubreddit = async (subreddit) => {
+  try {
+    const response = await fetch(`${API_ROOT}/r/${subreddit}/about.json`);
+    if (!response.ok) {
+      throw new Error(`Error fetching data for ${subreddit}: ${response.statusText}`);
+    }
+    const json = await response.json();
+    return json.data;
+
+  } catch (error) {
+    console.error(`Error fetching the 'about' data for ${subreddit}:`, error);
+    throw error;
+  }
+};

@@ -17,9 +17,6 @@ function Header() {
         return <Navigate to='/home' />
     }
 
-
-
-
       
     return (
         <>

@@ -44,9 +44,9 @@ function NavMenu({ closeDropdown }) {
                     </div>
                     <ul className="styled-list">
                         {topics.map((topic) => (
-                            <li key={topic.id}>
+                            <li key={topic.id} >
                                 <NavLink to={`/r/${topic.slug}`} activeclassname="active">
-                                    {topic.name}
+                                    <div className="navLink" >{topic.name}</div>
                                 </NavLink>
                             </li>
                         ))}

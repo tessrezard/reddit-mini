@@ -1,110 +1,25 @@
-// import React, { useRef, useEffect, useState } from 'react';
-// import '../styles/CSS/main.css';
-
-
-// const CommunityIcon = ({ subreddit }) => {
-
-
-//     // ----------------------------------------------------------------
-//     // FIND IMAGE
-//     let community_icon;
-//     if (subreddit.icon_img){
-//         community_icon = subreddit.community_icon;
-//     }
-//     console.log( 'subreddit.title', subreddit.title);
-//     console.log( 'subreddit.img_icon', subreddit.icon_img);
-//     console.log( 'subreddit.community_icon', subreddit.community_icon);
-
-
-//     // console.log('data.community_icon', data.community_icon);
-//     // console.log('data.icon_img', data.icon_img);
-//     // console.log('data.title', data.title);
-
-//     // ----------------------------------------------------------------
-
-
-
-//     // ----------------------------------------------------------------
-
-//     return (
-//         <>
-//             <img src={`${subreddit.icon_img}`}/>
-//             <img src={`${subreddit.community_icon}`}/>
-
-//         </>
-//     );
-// };
-
-// export default CommunityIcon;
-
-
-
-// import React from 'react';
-// import '../styles/CSS/main.css';
-
-// const CommunityIcon = ({ subreddit }) => {
-//     let community_icon;
-
-//     if (subreddit.icon_img) {
-//         community_icon = subreddit.community_icon;
-//     }
-
-//     console.log('subreddit.title', subreddit.title);
-//     console.log('subreddit.icon_img', subreddit.icon_img);
-//     console.log('subreddit.community_icon', subreddit.community_icon);
-
-//     return (
-//         <>
-//             {subreddit.icon_img && (
-//                 <img className='community-icon' src={`${subreddit.icon_img}`} alt="Icon from icon_img" />
-//             )}
-
-//             {subreddit.community_icon && (
-//                 <img className='community-icon' src={`${community_icon}`} alt="Icon from community_icon" />
-//             )}
-//         </>
-//     );
-// };
-
-// export default CommunityIcon;
-
-
-// import React from 'react';
-// import '../styles/CSS/main.css';
-
-// const CommunityIcon = ({ subreddit }) => {
-//     let communityIconUrl;
-
-//     if (subreddit.icon_img) {
-//         communityIconUrl = subreddit.icon_img;
-//     } else if (subreddit.community_icon) {
-//         communityIconUrl = subreddit.community_icon;
-//     }
-
-//     console.log('subreddit.title', subreddit.title);
-//     console.log('subreddit.icon_img', subreddit.icon_img);
-//     console.log('subreddit.community_icon', subreddit.community_icon);
-
-//     return (
-//         <>
-//             {communityIconUrl && (
-//                 <img className='community-icon' src={`${communityIconUrl}`} alt="Community Icon" />
-//             )}
-//         </>
-//     );
-// };
-
-// export default CommunityIcon;
-
 
 
 import React, { useState } from 'react';
 import '../styles/CSS/main.css';
-import defaultImage from '../images/default-community-icon.png'; // Replace with the actual path
+import default_community_icon from '../images/default-community-icon.png'; // Replace with the actual path
+import he from 'he'; // Import the HTML entity decoding library
 
 const CommunityIcon = ({ subreddit }) => {
+
+
     const [imageError, setImageError] = useState(false);
     const communityIconUrl = subreddit.icon_img || subreddit.community_icon;
+    let icon;
+     try {
+        icon = he.decode(communityIconUrl);
+      } catch (error) {
+        // console.error('Error decoding HTML entities:', error);
+        // Handle the error, provide a default value, or take appropriate action
+        icon = default_community_icon;
+      }
+      
+    // console.log('icon post decode: ', icon);
 
     const handleImageError = () => {
         setImageError(true);
@@ -112,21 +27,25 @@ const CommunityIcon = ({ subreddit }) => {
 
     if (!communityIconUrl || imageError) {
         // Handle the case where no valid image URL is available or image failed to load
-        return <img className='community-icon' src={defaultImage} alt="Default Community Icon" />;
+        return <img className='community-icon' src={icon} alt="Default Community Icon" />;
+
     }
+
 
     return (
         <>
             <img
                 className='community-icon'
-                src={communityIconUrl}
+                src={icon}
                 alt="Community Icon"
                 onError={handleImageError}
             />
-            
+
         </>
     );
 };
 
 export default CommunityIcon;
 
+
+// https://styles.redditmedia.com/t5_3flb9/styles/communityIcon_yvzonw0lxz9c1.png?width=256&amp;s=2460f86b9b12be8ec8659de604ce298095ffed0e

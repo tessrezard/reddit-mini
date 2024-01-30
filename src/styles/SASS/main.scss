@@ -12,7 +12,7 @@
 
 @import 'pages/Thread';
 @import 'pages/Subreddit';
-@import 'pages/Home'
+@import 'pages/Home';
 
 
 // font for community-icon
@@ -42,8 +42,8 @@ ul {
 }
 
 .community-icon{
-    height: 50px;
-    width: 50px;
+    height: 100%; // to fit container
+    width: 100%;
     margin-right: 0.5rem;
     border-radius: 50%;
     object-fit: cover;

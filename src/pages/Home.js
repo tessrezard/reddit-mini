@@ -9,8 +9,10 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const { data, loading, error } = useSelector((state) => state.subreddits);
-  // NOTE: useSelector is a hook from React Redux library. Takes whole state and gets subbredits slice
+  // NOTE: useSelector is a hook from React Redux library. Takes whole state and gets subreddits slice
   // NOTE: using destructuring assignment to get properties of slice
+
+  const isItHome = (subreddit) => subreddit.title === 'Home';
 
   useEffect(() => {
     // Dispatch the async thunk action when the component mounts
@@ -33,18 +35,23 @@ const Home = () => {
     <div>
       <h1>Explore Subreddits </h1>
 
-      <ul>
-        {data.map((subreddit) => (
-          <li  key={subreddit.id}>
 
-            <NavLink to={`/r/${subreddit.url.slice(3)}`} >
-              <div className='home-link'>
-              <CommunityIcon subreddit={subreddit} />
-              <p>{subreddit.title}</p>
-              </div>
-              
-            </NavLink>
-          </li>))}
+      <ul>
+        {data
+          .filter(subreddit => !isItHome(subreddit))
+          .map((subreddit) => (
+            <li key={subreddit.id}>
+              <NavLink to={`/r/${subreddit.url.slice(3)}`}>
+                <div className='home-link'>
+                  <div className="home-subreddit-community-icon">
+                    <CommunityIcon subreddit={subreddit} />
+                  </div>
+
+                  <p>{subreddit.title}</p>
+                </div>
+              </NavLink>
+            </li>
+          ))}
       </ul>
     </div>
   );

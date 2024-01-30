@@ -1,5 +1,4 @@
-//This slice will handle a search
-// let's hope this works.
+//This slice will handle a search from a search term 
 
 
 import { createSlice } from '@reduxjs/toolkit';

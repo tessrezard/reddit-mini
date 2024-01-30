@@ -56,6 +56,7 @@ a:-webkit-any-link {
     li {
         margin: 0;
         padding: 1rem;
+        height: 30px;
         text-decoration: none;
         color: $reddit-black;
         border-radius: 10px;
@@ -63,6 +64,12 @@ a:-webkit-any-link {
         &:hover{
             background-color: $reddit-grey;
         }
+    }
+
+    .navLink{
+        height: 30px;
+        width: 249px;
+        line-height: 2rem;
     }
 }
 
