@@ -7,14 +7,14 @@ const Loading = () => {
     return (
         <>
             <div className='loading-page-container'>
-                <div class="loading-container">
-                    <div class="loading-text">
+                <div className="loading-container">
+                    <div className="loading-text">
                         Loading
                     </div>
-                    <div class="dots-container">
-                        <div class="dot-one"></div>
-                        <div class="dot-two"></div>
-                        <div class="dot-three"></div>
+                    <div className="dots-container">
+                        <div className="dot-one"></div>
+                        <div className="dot-two"></div>
+                        <div className="dot-three"></div>
                     </div>
                 </div>
             </div>

@@ -7,6 +7,7 @@ import Comment from "../components/Comment";
 import he from 'he'; // Import the HTML entity decoding library
 import { FaComment } from 'react-icons/fa'; // comment/speech bubble icon
 import Loading from "../components/Loading";
+import LeadImage from "../components/LeadImage";
 
 
 // some notes about styling this Thread component
@@ -29,8 +30,6 @@ function Thread() {
 
     //  ALL THIS IS VERY REPETITIVE FROM THE POST COMPONENT. ITS ALL FOR FORMATTING
     // -----------------------------------------------------------------------------
-    // FOR IMAGE POST
-    const image = post.url;
 
     // FOR FLAIR TAGS
     //they categorize the posts
@@ -74,8 +73,8 @@ function Thread() {
     }, [dispatch, permalink]);
 
 
-      if (loading) {
-        return <Loading/>;
+    if (loading) {
+        return <Loading />;
     }
     if (error) {
         return <div>Error: {error}</div>;
@@ -114,21 +113,9 @@ function Thread() {
                                 <div dangerouslySetInnerHTML={{ __html: decodedHtmlString }} />
                             </div>
 
-                            {leadImg ?
-                                (<>
-                                    <img src={leadImg} alt="Post Image" className='lead-img' />
-                                </>)
-                                :
-                                (<>
-                                    {thumbnailImg ?
-                                        <>
-                                            <img src={thumbnailImg} alt="Thumbnail Image" className='thumbnail-img' />
-                                        </>
-                                        :
-                                        <>
-                                        </>
-                                    }
-                                </>)}
+                            <div>
+                                <LeadImage post={post} />
+                            </div>
 
                             <div className='post-bubbles'>
 

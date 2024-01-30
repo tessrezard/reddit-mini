@@ -3,10 +3,8 @@
 import React, { useState } from 'react';
 import '../styles/CSS/main.css';
 import CommunityIcon from '../components/CommunityIcon.js'
-
 import default_community_icon from '../images/default-community-icon.png'; // Replace with the actual path
 import he from 'he'; // Import the HTML entity decoding library
-import Loading from './Loading';
 
 const SubredditHeader = ({ subreddit }) => {
 
@@ -22,10 +20,8 @@ const SubredditHeader = ({ subreddit }) => {
         icon = default_community_icon;
     }
 
-    console.log(subreddit);
 
     //EXTRACT BANNER COLOR
-    console.log(subreddit.banner_background_color);
     let banner_background_color = 'rgb(203, 203, 203)'
     if (subreddit.banner_background_color) {
         banner_background_color = subreddit.banner_background_color;

@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import '../styles/CSS/main.css';
+import LeadImage from "../components/LeadImage";
 import { Link } from 'react-router-dom';
 import { FaComment } from 'react-icons/fa'; // comment/speech bubble icon
 import he from 'he'; // Import the HTML entity decoding library
@@ -113,21 +114,8 @@ const Post = ({ post }) => {
                             )
                             : <></>}
 
-                        {leadImg ?
-                            (<>
-                                <img src={leadImg} alt="Post Image" className='lead-img' />
-                            </>)
-                            :
-                            (<>
-                                {thumbnailImg ?
-                                    <>
-                                        <img src={thumbnailImg} alt="Thumbnail Image" className='thumbnail-img' />
-                                    </>
-                                    :
-                                    <>
-                                    </>
-                                }
-                            </>)}
+                        <LeadImage post={post}/>
+                        
 
 
                         <div className='post-bubbles'>
