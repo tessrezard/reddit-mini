@@ -6,6 +6,7 @@ import CommunityIcon from '../components/CommunityIcon.js'
 
 import default_community_icon from '../images/default-community-icon.png'; // Replace with the actual path
 import he from 'he'; // Import the HTML entity decoding library
+import Loading from './Loading';
 
 const SubredditHeader = ({ subreddit }) => {
 
@@ -62,7 +63,7 @@ const SubredditHeader = ({ subreddit }) => {
                     </div>
                     <h1 className="subreddit-name">r/{subreddit.display_name}</h1>
                 </div>
-
+                
                 <div className="subreddit-bio">
                     <p className="subreddit-bio-title">{subreddit.title}</p>
                     <p>{subreddit.public_description}</p>

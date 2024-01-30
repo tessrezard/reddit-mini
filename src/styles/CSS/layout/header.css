@@ -204,7 +204,6 @@ However, it's still common to see both versions for compatibility reasons.
   left: 2px;
   width: 15px;
   height: 10px;
-  background-color: rgb(175, 118, 249);
   background: linear-gradient(to bottom right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, rgb(255, 69, 0) 50%, rgb(255, 69, 0) 100%);
   border-radius: 10px;
 }

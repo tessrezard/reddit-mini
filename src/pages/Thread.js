@@ -6,6 +6,7 @@ import '../styles/CSS/main.css';
 import Comment from "../components/Comment";
 import he from 'he'; // Import the HTML entity decoding library
 import { FaComment } from 'react-icons/fa'; // comment/speech bubble icon
+import Loading from "../components/Loading";
 
 
 // some notes about styling this Thread component
@@ -73,14 +74,12 @@ function Thread() {
     }, [dispatch, permalink]);
 
 
-    if (loading) {
-        return <div>Loading...</div>;
+      if (loading) {
+        return <Loading/>;
     }
-
     if (error) {
         return <div>Error: {error}</div>;
     }
-
 
     // console.log(post)
 

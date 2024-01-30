@@ -4,6 +4,7 @@ import { fetchSubreddits } from '../store/thunks';
 import { NavLink } from "react-router-dom";
 import '../styles/CSS/main.css';
 import CommunityIcon from '../components/CommunityIcon.js'
+import Loading from "../components/Loading";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -19,13 +20,12 @@ const Home = () => {
     dispatch(fetchSubreddits());
   }, [dispatch]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+     if (loading) {
+        return <Loading/>;
+    }
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
 
   // console.log('data.community_icon', data.community_icon);
   // console.log('data.icon_img', data.icon_img);

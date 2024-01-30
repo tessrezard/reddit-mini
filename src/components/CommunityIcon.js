@@ -27,7 +27,7 @@ const CommunityIcon = ({ subreddit }) => {
 
     if (!communityIconUrl || imageError) {
         // Handle the case where no valid image URL is available or image failed to load
-        return <img className='community-icon' src={icon} alt="Default Community Icon" />;
+        return <img className='community-icon' src={default_community_icon} alt="Default Community Icon" />;
 
     }
 

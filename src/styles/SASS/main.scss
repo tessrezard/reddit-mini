@@ -7,7 +7,7 @@
 // @import 'components/sub-sections';
 @import 'components/Post';
 @import 'components/Comment';
-
+@import 'components/Loading';
 @import 'layout/header';
 
 @import 'pages/Thread';
@@ -48,6 +48,7 @@ ul {
     border-radius: 50%;
     object-fit: cover;
 }
+
 
 
 // <div className='default-community-icon-wrapper'>

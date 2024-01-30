@@ -1,0 +1,58 @@
+
+.loading-page-container{
+    display: flex;
+    margin: auto;
+    color: $reddit-red;
+}
+
+
+@keyframes bounce {
+    0%, 20%, 60%, 80%, 100% {
+      transform: translateY(0);
+    }
+    45% {
+      transform: translateY(-20px);
+    }
+    80% {
+      transform: translateY(-10px);
+    }
+  }
+  .loading-container{
+    margin: auto;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .loading-text{
+    font-size: 1.25rem;
+    font-weight: 700;
+
+  }
+  .dots-container {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+  }
+  
+  .dot-one, .dot-two, .dot-three {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: $reddit-red;
+    margin: 0 5px;
+  animation: bounce 1s infinite ease-in-out;
+}
+
+.dot-two {
+  animation-delay: 150ms;
+}
+
+.dot-three {
+  animation-delay: 300ms;
+}

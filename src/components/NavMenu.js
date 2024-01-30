@@ -9,13 +9,13 @@ function NavMenu({ closeDropdown }) {
 
 
     const topics = [
-        { id: 1, name: 'Technology', slug: 'technology' },
+        { id: 1, name: 'Programming', slug: 'programming' },
         { id: 2, name: 'Science', slug: 'science' },
-        { id: 3, name: 'Programming', slug: 'programming' },
+        { id: 3, name: 'Web Dev', slug: 'webdev' },
         { id: 4, name: 'Houseplants', slug: 'houseplants' },
         { id: 5, name: 'Maps', slug: 'MapPorn' },
-        { id: 6, name: 'React', slug: 'react' },
-        { id: 7, name: 'Today I Learned', slug: 'todayilearned' },
+        { id: 6, name: 'Sims 4', slug: 'sims4' },
+        { id: 7, name: 'Thrift Store Hauls', slug: 'thriftstorehauls' },
         { id: 8, name: 'Pop culture chat', slug: 'popculturechat' },
         { id: 9, name: 'Acotar', slug: 'acotar' },
         { id: 10, name: 'Swimming', slug: 'swimming' },

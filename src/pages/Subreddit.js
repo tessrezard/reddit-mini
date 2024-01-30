@@ -5,7 +5,7 @@ import { fetchSubredditPosts, fetchAboutSubreddit } from '../store/thunks';
 import Post from '../components/Post'
 import '../styles/CSS/main.css';
 import SubredditHeader from '../components/SubredditHeader'
-
+import Loading from "../components/Loading";
 
 function Subreddit() {
     const { subreddit } = useParams();
@@ -43,7 +43,7 @@ function Subreddit() {
 
     
     if (loading) {
-        return <div>Loading...</div>;
+        return <Loading/>;
     }
     if (error) {
         return <div>Error: {error}</div>;

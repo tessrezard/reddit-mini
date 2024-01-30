@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchSearch } from '../store/thunks';
 import Post from '../components/Post'
 import '../styles/CSS/main.css';
+import Loading from "../components/Loading";
 
 
 function SearchResults() {
@@ -45,8 +46,8 @@ function SearchResults() {
         // search: { searchData, searchLoading, searchError },
       });
     
-    if (loading) {
-        return <div>Loading...</div>;
+      if (loading) {
+        return <Loading/>;
     }
     if (error) {
         return <div>Error: {error}</div>;
