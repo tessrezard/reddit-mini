@@ -499,7 +499,7 @@ However, it's still common to see both versions for compatibility reasons.
 
 .subreddit-banner {
   border-radius: 18px;
-  height: 150px;
+  height: 64px;
   margin-right: 1rem;
   overflow: hidden;
   position: relative;
@@ -514,24 +514,54 @@ However, it's still common to see both versions for compatibility reasons.
   left: 0;
 }
 
-.subreddit-title {
-  margin: 0;
-  padding-left: 0.75rem;
-  padding-top: 1rem;
-  letter-spacing: 0.25px;
+.subreddit-header-icon-and-name {
+  display: flex;
+  flex-flow: row;
+  height: 60px;
 }
-
-.subreddit-header-community-icon {
+.subreddit-header-icon-and-name .subreddit-header-community-icon {
   height: 80px;
   width: 80px;
   background-color: rgb(234, 237, 239);
+  border: 4px solid rgb(255, 255, 255);
   border-radius: 50%;
   display: flex;
   flex-flow: row;
   align-items: center;
   margin-top: 0.5rem;
+  position: relative;
+  bottom: 3rem;
+  left: 2rem;
+}
+.subreddit-header-icon-and-name .subreddit-name {
+  margin: 0;
+  padding-left: 2.5rem;
+  letter-spacing: 0.25px;
 }
 
+.subreddit-bio {
+  margin: 1rem;
+  margin-top: 0;
+  padding: 1rem;
+  background-color: rgb(234, 237, 239);
+  border-radius: 18px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.subreddit-bio .subreddit-bio-title {
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .subreddit-banner {
+    height: 96px;
+  }
+}
+@media (min-width: 960px) {
+  .subreddit-banner {
+    height: 128px;
+  }
+}
 .home-link {
   height: 60px;
   display: flex;

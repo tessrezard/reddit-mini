@@ -59,11 +59,6 @@ function Subreddit() {
                 <>
                 <SubredditHeader subreddit={dataAbout}/>
                 
-                <div>
-                    <p>{dataAbout.title}</p>
-                    <p>{dataAbout.public_description}</p>
-
-                </div>
 
                 </>)
             }

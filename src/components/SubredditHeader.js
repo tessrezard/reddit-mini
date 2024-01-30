@@ -56,10 +56,18 @@ const SubredditHeader = ({ subreddit }) => {
                         alt="Subreddit banner"
                     />) : (<></>)}
                 </div>
-                <div className="subreddit-header-community-icon">
-                    <CommunityIcon className="subreddit-icon" subreddit={subreddit} />
+                <div className='subreddit-header-icon-and-name'>
+                    <div className="subreddit-header-community-icon">
+                        <CommunityIcon className="subreddit-icon" subreddit={subreddit} />
+                    </div>
+                    <h1 className="subreddit-name">r/{subreddit.display_name}</h1>
                 </div>
-                <h1 className="subreddit-title">r/{subreddit.display_name}</h1>
+
+                <div className="subreddit-bio">
+                    <p className="subreddit-bio-title">{subreddit.title}</p>
+                    <p>{subreddit.public_description}</p>
+                </div>
+
             </div>
 
         </>
