@@ -23,7 +23,6 @@ function NavMenu({ }) {
 
     const location = useLocation();
     const checkActive = (topic) => {
-        console.log('checking active');
         if (topic === 'popular' && location.pathname == '/r/popular') {
             return true;
         } else if (location.pathname == `/r/${topic.slug}`) {

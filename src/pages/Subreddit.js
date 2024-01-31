@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchSubredditPosts, fetchAboutSubreddit } from '../store/thunks';
 import Post from '../components/Post'
 import '../styles/CSS/main.css';
-import SubredditHeader from '../components/SubredditHeader'
+import SubredditHeader from '../components/SubredditHeader';
+import PopularHeader from "../components/PopularHeader";
 import Loading from "../components/Loading";
 import he from 'he'; // Import the HTML entity decoding library
 
@@ -32,20 +33,27 @@ function Subreddit() {
     const { data, loading, error } = useSelector((state) => state.subredditPosts);
     const { dataAbout, loadingAbout, errorAbout } = useSelector((state) => state.aboutSubreddit);
 
-    let isPopular;
-    if (subreddit === 'popular') {
-        isPopular = true
-    }
+    const isPopular = subreddit === 'popular';
+
 
     useEffect(() => {
         window.scrollTo(0, 0);
         const fetchData = async () => {
-            try {
-                dispatch(fetchSubredditPosts(subreddit));
-                dispatch(fetchAboutSubreddit(subreddit));
-            } catch (error) {
-                console.error('Error fetching data:', error);
+            if (!isPopular) {
+                try {
+                    dispatch(fetchSubredditPosts(subreddit));
+                    dispatch(fetchAboutSubreddit(subreddit));
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                }
+            } else if (isPopular) {
+                try {
+                    dispatch(fetchSubredditPosts(subreddit));
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                }
             }
+
         };
         fetchData();
 
@@ -62,7 +70,10 @@ function Subreddit() {
     return (
         <div className="subreddit-page-container">
             {isPopular ?
-                (<></>)
+                (
+                    <>
+                        <PopularHeader />
+                    </>)
                 :
                 (
                     <>

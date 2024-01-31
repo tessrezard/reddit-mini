@@ -321,6 +321,11 @@ a:-webkit-any-link {
   animation-delay: 300ms;
 }
 
+.popHead-section-container {
+  display: flex;
+  justify-content: space-around;
+}
+
 .searchBarContainer {
   border-radius: 50px;
   border: 1px solid #f2f1f6;
@@ -701,4 +706,9 @@ ul {
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.searchResults-page-container {
+  position: relative;
+  top: 56px;
 }/*# sourceMappingURL=main.css.map */

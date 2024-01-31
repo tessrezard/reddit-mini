@@ -8,6 +8,7 @@
 @import 'components/Post';
 @import 'components/Comment';
 @import 'components/Loading';
+@import 'components/PopularHeader';
 @import 'layout/header';
 
 @import 'pages/Thread';
@@ -50,7 +51,10 @@ ul {
     object-fit: cover;
 }
 
-
+.searchResults-page-container {
+    position: relative;
+    top: $header-height;
+}
 
 // <div className='default-community-icon-wrapper'>
 //                 <div className='default-community-icon-text-r' > r </div>

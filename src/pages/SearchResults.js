@@ -58,10 +58,8 @@ function SearchResults() {
 
 
     return (
-        <div>
-            <div className="subreddit-header">
-                <h1 className="subreddit-title">search : {term}</h1>
-            </div>
+        <div className="searchResults-page-container">
+        
 
             <ul style={{ listStyle: 'none' }}>
                 {data.map((post) => (
