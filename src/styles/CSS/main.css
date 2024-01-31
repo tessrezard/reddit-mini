@@ -36,10 +36,11 @@ a:-webkit-any-link {
 
 .section-title-container {
   padding: 1rem;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .section-title {
-  padding-left: 1rem;
   color: rgb(87, 111, 118);
   text-transform: capitalize;
   font-weight: 400px;
@@ -62,10 +63,36 @@ a:-webkit-any-link {
 .styled-list li:hover {
   background-color: rgb(234, 237, 239);
 }
-.styled-list .navLink {
+
+.navLink {
+  margin: 0;
   height: 30px;
   width: 249px;
   line-height: 2rem;
+  margin: auto;
+  text-align: center;
+  display: flex;
+}
+
+.navMenu-popular-active {
+  background-color: rgb(234, 237, 239);
+  height: 30px;
+}
+
+.navMenu-active {
+  height: 2rem;
+}
+
+.navMenu-popular {
+  margin: 0;
+  padding: 1rem;
+  height: 30px;
+  text-decoration: none;
+  color: rgb(19, 19, 19);
+  border-radius: 10px;
+}
+.navMenu-popular:hover {
+  background-color: rgb(234, 237, 239);
 }
 
 .post-layout-container {

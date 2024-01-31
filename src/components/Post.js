@@ -7,7 +7,6 @@ import he from 'he'; // Import the HTML entity decoding library
 
 const Post = ({ post }) => {
 
-    console.log(post);
     // ----------------------------------------------------------------
     // FOR FLAIR TAGS
     //they categorize the posts

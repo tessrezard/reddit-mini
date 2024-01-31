@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import '../styles/CSS/main.css';
 import CommunityIcon from "./CommunityIcon";
 
@@ -21,16 +21,40 @@ function NavMenu({ }) {
         { id: 10, name: 'Swimming', slug: 'swimming' },
     ]
 
+    const location = useLocation();
+    const checkActive = (topic) => {
+        console.log('checking active');
+        if (topic === 'popular' && location.pathname == '/r/popular') {
+            return true;
+        } else if (location.pathname == `/r/${topic.slug}`) {
+            return true;
+        }
+    }
+
+
     return (
         <>
             <div className='menu-container' >
                 <div className="menu-section">
-                    <div className="section-title-container">
-                        <p className="section-title">
-                            <NavLink to={`/r/popular`} >
-                                Popular
-                            </NavLink>
-                        </p>
+                    <div className="section-title-container ">
+                        <div className="section-title">
+                            {checkActive('popular') ? (
+                                <>
+                                    <div className="navMenu-popular navMenu-popular-active">
+                                        <NavLink to={`/r/popular`} className="navMenu-active navLink">
+                                            Popular
+                                        </NavLink>
+                                    </div>
+                                </>) : (
+                                <>
+                                <div className="navMenu-popular">
+                                    <NavLink to={`/r/popular`} className=" navLink" >
+                                        Popular
+                                    </NavLink>
+                                    </div>
+                                </>)}
+
+                        </div>
                     </div>
                 </div>
                 <div className="menu-section">
@@ -42,14 +66,17 @@ function NavMenu({ }) {
                     <ul className="styled-list">
                         {topics.map((topic) => (
                             <li key={topic.id} >
-                                <NavLink to={`/r/${topic.slug}`} >
-                                    <div style={{display: 'flex', }}>
-                                        {/* <div style={{ width: 30, height: 30 }}>
-                                            <CommunityIcon subreddit={topic} />
-                                        </div> */}
-                                        <div className="navLink" >{topic.name}</div>
-                                    </div>
-                                </NavLink>
+                                {checkActive(topic) ? (
+                                    <>
+                                        <NavLink to={`/r/${topic.slug}`} className="navMenu-active navLink" >
+                                            {topic.name}
+                                        </NavLink>
+                                    </>) : (
+                                    <>
+                                        <NavLink to={`/r/${topic.slug}`} className=" navLink">
+                                            {topic.name}
+                                        </NavLink>
+                                    </>)}
                             </li>
                         ))}
                     </ul>
