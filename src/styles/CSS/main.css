@@ -476,8 +476,11 @@ However, it's still common to see both versions for compatibility reasons.
   }
 }
 .headerContainer {
+  position: fixed;
+  width: 100vw;
   height: 56px;
   display: flex;
+  z-index: 1;
   justify-content: flex-start;
   align-items: center;
   align-content: center;
@@ -533,6 +536,8 @@ However, it's still common to see both versions for compatibility reasons.
 .thread-page-container {
   display: flex;
   flex-flow: column;
+  position: relative;
+  top: 56px;
   overflow-x: hidden;
 }
 
@@ -543,6 +548,8 @@ However, it's still common to see both versions for compatibility reasons.
 
 .subreddit-page-container {
   display: flex;
+  position: relative;
+  top: 56px;
   flex-flow: column;
   overflow-x: hidden;
 }

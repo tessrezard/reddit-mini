@@ -12,7 +12,7 @@ function Header() {
     //basic redirect to home page
     const location = useLocation();
     if (location.pathname === '/') {
-        return <Navigate to='/home' />
+        return <Navigate to='/r/popular' />
     }
 
       

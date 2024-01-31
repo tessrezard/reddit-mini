@@ -13,6 +13,7 @@ const Home = () => {
   // NOTE: useSelector is a hook from React Redux library. Takes whole state and gets subreddits slice
   // NOTE: using destructuring assignment to get properties of slice
 
+
   const isItHome = (subreddit) => subreddit.title === 'Home';
 
   useEffect(() => {
