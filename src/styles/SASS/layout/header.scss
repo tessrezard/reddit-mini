@@ -8,8 +8,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
 
 .headerContainer {
+    position: fixed;
+    width: 100vw;
     height: $header-height;
     display: flex;
+    z-index: 1;
     justify-content: flex-start;
     align-items: center;
     align-content: center;

@@ -54,7 +54,7 @@ const Post = ({ post }) => {
                         <p className='subreddit-name'>
                             r/{post.subreddit}
                         </p>
-                        <p>
+                        <p className='author-name'>
                             u/{post.author}
                         </p>
                     </div>

@@ -12,7 +12,7 @@ const Dropdown = ({ closeDropdown }) => {
 
     return (
         <div onClick={handleClick} className="dropdown-menu-page">
-            <div >
+            <div>
                 <NavMenu/>
             </div>
         </div>

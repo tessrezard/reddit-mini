@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import '../styles/CSS/main.css';
+import CommunityIcon from "./CommunityIcon";
 
 
 
@@ -42,7 +43,12 @@ function NavMenu({ }) {
                         {topics.map((topic) => (
                             <li key={topic.id} >
                                 <NavLink to={`/r/${topic.slug}`} >
-                                    <div className="navLink" >{topic.name}</div>
+                                    <div style={{display: 'flex', }}>
+                                        {/* <div style={{ width: 30, height: 30 }}>
+                                            <CommunityIcon subreddit={topic} />
+                                        </div> */}
+                                        <div className="navLink" >{topic.name}</div>
+                                    </div>
                                 </NavLink>
                             </li>
                         ))}

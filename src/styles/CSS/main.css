@@ -70,8 +70,7 @@ a:-webkit-any-link {
 
 .post-layout-container {
   border-top: 1px solid rgb(203, 203, 203);
-  padding-top: 0.25rem;
-  margin: auto;
+  padding: 0.25rem;
 }
 
 #overlay {
@@ -146,13 +145,16 @@ a:-webkit-any-link {
   padding: 2px 7px;
   font-size: 0.75rem;
   margin: 0;
+  margin-bottom: 0.5rem;
 }
 .post-main .self-text-preview-wrapper {
   max-height: 300px;
   overflow: hidden;
   line-height: 1.25rem;
   position: relative;
-  margin-bottom: 1rem;
+}
+.post-main .self-text-preview-wrapper p {
+  margin-bottom: 0;
 }
 .post-main .see-whole-post {
   display: block;
@@ -460,7 +462,7 @@ However, it's still common to see both versions for compatibility reasons.
 } */
 .dropdown-menu-page {
   background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
+  position: fixed;
   top: 57px;
   right: 0;
   bottom: 0;

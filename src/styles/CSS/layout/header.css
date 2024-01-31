@@ -167,7 +167,7 @@ However, it's still common to see both versions for compatibility reasons.
 } */
 .dropdown-menu-page {
   background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
+  position: fixed;
   top: 57px;
   right: 0;
   bottom: 0;
@@ -181,8 +181,11 @@ However, it's still common to see both versions for compatibility reasons.
   }
 }
 .headerContainer {
+  position: fixed;
+  width: 100vw;
   height: 56px;
   display: flex;
+  z-index: 1;
   justify-content: flex-start;
   align-items: center;
   align-content: center;

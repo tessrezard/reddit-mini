@@ -32,7 +32,7 @@ function Header() {
                     <SearchBar/>
                 </div>
             </header>
-            <div>
+            <div >
                 {activeBurger ?
                     <Dropdown  closeDropdown={setActiveBurger} /> : <></>
                 }

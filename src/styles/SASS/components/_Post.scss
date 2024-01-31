@@ -1,7 +1,6 @@
 .post-layout-container {
     border-top: $reddit-border-grey;
-    padding-top: 0.25rem;
-    margin: auto;
+    padding: 0.25rem;
 }
 
 //this is the overlay for the preview of longer self-text
@@ -89,6 +88,7 @@
         padding: 2px 7px; // Top/Bottom 2px, Left/Right 7px
         font-size: 0.75rem;
         margin: 0;
+        margin-bottom: 0.5rem;
     }
 
     .self-text-preview-wrapper {
@@ -96,7 +96,10 @@
         overflow: hidden;
         line-height: 1.25rem;
         position: relative;
-        margin-bottom: 1rem;
+
+        p{
+            margin-bottom: 0;
+        }
     }
 
     .see-whole-post {

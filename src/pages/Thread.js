@@ -10,11 +10,6 @@ import Loading from "../components/Loading";
 import LeadImage from "../components/LeadImage";
 
 
-// some notes about styling this Thread component
-//   there is a lot of repetition between a Subreddit Post structure and
-//   a Thread post body. I use classes initialized in Post.scss as well as 
-//   Thread-specific classes which amend/extend Post classes. 
-
 function Thread() {
 
     const location = useLocation();
@@ -26,10 +21,7 @@ function Thread() {
     const dispatch = useDispatch();
     const { data, loading, error } = useSelector((state) => state.postComments);
 
-
-    //  ALL THIS IS VERY REPETITIVE FROM THE POST COMPONENT. ITS ALL FOR FORMATTING
-    // -----------------------------------------------------------------------------
-
+    
     // FOR FLAIR TAGS
     //they categorize the posts
     const flairBackgroundColor = post.link_flair_background_color;

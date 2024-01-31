@@ -1,6 +1,6 @@
 .dropdown-menu-page{
     background-color: rgba(0, 0, 0, 0.5);
-    position: absolute; // Set the overlay to absolute
+    position: fixed; // Set the overlay to absolute
     top: calc($header-height + 1px);
     right: 0;
     bottom: 0;
