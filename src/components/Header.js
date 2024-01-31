@@ -1,10 +1,8 @@
-import React from "react";
-import { NavLink, Link, useLocation, Navigate } from "react-router-dom";
-import SearchBar from './SearchBar'; // Adjust the import path as needed
+import React, { useState }  from "react";
+import {Link, useLocation, Navigate } from "react-router-dom";
 import '../styles/CSS/layout/header.css';
-
+import SearchBar from './SearchBar'; // Adjust the import path as needed
 import Burger from './Burger';
-import { useState } from "react";
 import Dropdown from "./Dropdown";
 
 function Header() {
@@ -27,9 +25,7 @@ function Header() {
                     <div className="reddit-mini-logo">
                     <div className="logo-tail"/>
 
-                        <Link to={`/`}className="logo-circle"> 
-                         {/* <div className="bear"> 🐻‍❄️</div> */}
-                        </Link>
+                        <Link to={`/`}className="logo-circle"/> 
                         
                     </div>
                     <p className='title'> reddit mini </p>

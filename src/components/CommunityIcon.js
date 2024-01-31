@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import '../styles/CSS/main.css';
-import default_community_icon from '../images/default-community-icon.png'; // Replace with the actual path
-import he from 'he'; // Import the HTML entity decoding library
+import default_community_icon from '../images/default-community-icon.png';
+import he from 'he'; // HTML entity decoding library
 
 const CommunityIcon = ({ subreddit }) => {
 
@@ -19,16 +19,14 @@ const CommunityIcon = ({ subreddit }) => {
         icon = default_community_icon;
       }
       
-    // console.log('icon post decode: ', icon);
 
     const handleImageError = () => {
         setImageError(true);
     };
 
     if (!communityIconUrl || imageError) {
-        // Handle the case where no valid image URL is available or image failed to load
+        // Handle case where no valid image URL is available or image failed to load
         return <img className='community-icon' src={default_community_icon} alt="Default Community Icon" />;
-
     }
 
 
@@ -48,4 +46,3 @@ const CommunityIcon = ({ subreddit }) => {
 export default CommunityIcon;
 
 
-// https://styles.redditmedia.com/t5_3flb9/styles/communityIcon_yvzonw0lxz9c1.png?width=256&amp;s=2460f86b9b12be8ec8659de604ce298095ffed0e

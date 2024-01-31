@@ -1,6 +1,4 @@
-
-
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/CSS/main.css';
 import CommunityIcon from '../components/CommunityIcon.js'
 import default_community_icon from '../images/default-community-icon.png'; // Replace with the actual path
@@ -8,8 +6,7 @@ import he from 'he'; // Import the HTML entity decoding library
 
 const SubredditHeader = ({ subreddit }) => {
 
-
-    // const [imageError, setImageError] = useState(false);
+    //GET COMMUNITY ICON
     const communityIconUrl = subreddit.icon_img || subreddit.community_icon;
     let icon;
     try {
@@ -21,13 +18,13 @@ const SubredditHeader = ({ subreddit }) => {
     }
 
 
-    //EXTRACT BANNER COLOR
+    //GET BANNER COLOR
     let banner_background_color = 'rgb(203, 203, 203)'
     if (subreddit.banner_background_color) {
         banner_background_color = subreddit.banner_background_color;
     }
 
-    //EXTRACT BANNER IMAGE
+    //GET BANNER IMAGE
     let banner_img = subreddit.banner_background_image || subreddit.banner_img;
     let banner;
     try {
@@ -53,13 +50,14 @@ const SubredditHeader = ({ subreddit }) => {
                         alt="Subreddit banner"
                     />) : (<></>)}
                 </div>
+                
                 <div className='subreddit-header-icon-and-name'>
                     <div className="subreddit-header-community-icon">
                         <CommunityIcon className="subreddit-icon" subreddit={subreddit} />
                     </div>
                     <h1 className="subreddit-name">r/{subreddit.display_name}</h1>
                 </div>
-                
+
                 <div className="subreddit-bio">
                     <p className="subreddit-bio-title">{subreddit.title}</p>
                     <p>{subreddit.public_description}</p>
@@ -74,4 +72,3 @@ const SubredditHeader = ({ subreddit }) => {
 export default SubredditHeader;
 
 
-// https://styles.redditmedia.com/t5_3flb9/styles/communityIcon_yvzonw0lxz9c1.png?width=256&amp;s=2460f86b9b12be8ec8659de604ce298095ffed0e

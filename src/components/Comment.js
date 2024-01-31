@@ -1,7 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React from 'react';
 import '../styles/CSS/main.css';
-import { Link } from 'react-router-dom';
-import { FaComment } from 'react-icons/fa'; // comment/speech bubble icon
 import he from 'he'; // Import the HTML entity decoding library
 
 
@@ -9,7 +7,6 @@ import he from 'he'; // Import the HTML entity decoding library
 
 const Comment = ({ comment }) => {
 
-    console.log(comment);
 
 
     // ----------------------------------------------------------------

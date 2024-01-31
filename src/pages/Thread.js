@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, Component } from 'react';
-import { useParams, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPostComments } from '../store/thunks';
 import '../styles/CSS/main.css';
@@ -16,7 +16,6 @@ import LeadImage from "../components/LeadImage";
 //   Thread-specific classes which amend/extend Post classes. 
 
 function Thread() {
-    const { id } = useParams();
 
     const location = useLocation();
 
@@ -48,27 +47,13 @@ function Thread() {
     }
     const selfTextPreview = useRef(null);
 
-    // ----------------------------------------------------------------
-    // FIND LEAD IMAGE
-    let leadImg;
-    let thumbnailImg;
-    // console.log('----------------------')
-    // console.log('TITLE : ', post.title);
-
-    if (post.url) {
-        if (post.url.endsWith('.jpeg') || post.url.endsWith('.jpg') || post.url.endsWith('.png')) {
-            leadImg = post.url;
-        }
-    }
-
-    if (post.thumbnail) {
-        if (post.thumbnail.endsWith('.jpeg') || post.thumbnail.endsWith('.jpg') || post.thumbnail.endsWith('.png')) {
-            thumbnailImg = post.thumbnail;
-        }
-    }
-
+    
     useEffect(() => {
-        dispatch(fetchPostComments(permalink));
+        try {
+            dispatch(fetchPostComments(he.decode(permalink)));
+        } catch (error) {
+            return <div>Error: {error}</div>;
+        }
         window.scrollTo(0, 0);
     }, [dispatch, permalink]);
 

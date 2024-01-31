@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSubredditPosts, fetchAboutSubreddit } from '../store/thunks';
 import Post from '../components/Post'
 import '../styles/CSS/main.css';
 import SubredditHeader from '../components/SubredditHeader'
 import Loading from "../components/Loading";
+import he from 'he'; // Import the HTML entity decoding library
 
 function Subreddit() {
     const { subreddit } = useParams();
@@ -14,7 +15,16 @@ function Subreddit() {
 
     const handleLinkClick = (post) => {
         // Use navigate to append the new route to the existing URL
-        navigate(`../comments/${post.title.replace(/\s/g, '_')}`, { state: { post: post } });
+        console.log(post.title);
+        let decoded = he.decode(post.title);
+        console.log(decoded);
+        const modifiedTitle = post.title.replace(/\s/g, '_').replace(/\//g, '_').toLowerCase();
+        console.log(post.url);
+        try {
+            navigate(`../comments/${modifiedTitle}`, { state: { post: post } });
+        } catch (error) {
+            return <div>Error: {error}</div>;
+        }
     };
 
 
@@ -31,39 +41,36 @@ function Subreddit() {
         window.scrollTo(0, 0);
         const fetchData = async () => {
             try {
-              dispatch(fetchSubredditPosts(subreddit));
-              dispatch(fetchAboutSubreddit(subreddit));
+                dispatch(fetchSubredditPosts(subreddit));
+                dispatch(fetchAboutSubreddit(subreddit));
             } catch (error) {
-              console.error('Error fetching data:', error);
+                console.error('Error fetching data:', error);
             }
-          };
-          fetchData();
+        };
+        fetchData();
 
     }, [dispatch, subreddit]);
 
-    
+
     if (loading) {
-        return <Loading/>;
+        return <Loading />;
     }
     if (error) {
         return <div>Error: {error}</div>;
     }
 
-
     return (
         <div className="subreddit-page-container">
             {isPopular ?
                 (<></>)
-                : 
+                :
                 (
-                <>
-                <SubredditHeader subreddit={dataAbout}/>
-                
-
-                </>)
+                    <>
+                        <SubredditHeader subreddit={dataAbout} />
+                    </>)
             }
 
-            <ul style={{ listStyle: 'none' }}>
+            <ul className='subreddit-ul' style={{ listStyle: 'none' }}>
                 {data.map((post) => (
                     <div onClick={() => handleLinkClick(post)} key={post.id}>
                         <Post post={post} />

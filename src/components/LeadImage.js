@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/CSS/main.css';
-import default_community_icon from '../images/default-community-icon.png'; // Replace with the actual path
 import he from 'he'; // Import the HTML entity decoding library
 
 const LeadImage = ({ post }) => {
-
-
-
-    // FIND LEAD IMAGE
 
     // ORDER OF PREFERENCE : 
     //  post.url 
@@ -15,8 +10,8 @@ const LeadImage = ({ post }) => {
     //  post.thumbnail
 
     let urlImg;
-    let thumbnailImg;
     let mediaImgArr = [];
+    let thumbnailImg;
 
     if (post.url) {
         if (post.url.endsWith('.jpeg') || post.url.endsWith('.jpg') || post.url.endsWith('.png')) {
@@ -27,28 +22,19 @@ const LeadImage = ({ post }) => {
     let mediaImg;
     if (post.media_metadata) {
         const mediaObj = post.media_metadata;
-        console.log(mediaObj);
         const keys = Object.keys(mediaObj)
-        console.log('keys', keys);
-        console.log(keys[0])
         for (let i = 0; i < keys.length; i++) {
             const value = mediaObj[keys[i]].s.u;
-            console.log('value', value);
             try {
                 mediaImg = he.decode(value);
                 mediaImgArr.push(mediaImg);
             } catch (error) {
                 // console.error('Error decoding HTML entities:', error);
-                // Handle the error, provide a default value
                 mediaImg = '';
                 mediaImgArr.push('');
             }
         }
     }
-
-
-    console.log('mediaImgArr', mediaImgArr);
-
 
 
     if (post.thumbnail) {
@@ -58,27 +44,23 @@ const LeadImage = ({ post }) => {
     }
 
 
-
-
     return (
         <>
             {urlImg ?
                 (<>
-                    {/* <img src={leadImg} alt="Post Image" className='lead-img' /> */}
-                    <img src={urlImg} alt="Post Image" className='lead-img' />
+                    <img src={urlImg} alt={post.title} className='lead-img' />
                 </>)
                 :
                 (<>
                 {mediaImgArr.length > 0 ?
                 (
                     <>
-                        <img src={mediaImgArr[0]} alt="Post Image" className='lead-img' />
-
+                        <img src={mediaImgArr[0]} alt={post.title} className='lead-img' />
                     </>) : (
                     <>
                     {thumbnailImg ?
                         <>
-                            <img src={thumbnailImg} alt="Thumbnail Image" className='thumbnail-img' />
+                            <img src={thumbnailImg} alt={post.title} className='thumbnail-img' />
                         </>
                         :
                         <>

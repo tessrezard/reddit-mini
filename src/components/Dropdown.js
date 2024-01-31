@@ -1,4 +1,4 @@
-import React , { useEffect, useRef }from "react";
+import React from "react";
 import NavMenu from "./NavMenu";
 import '../styles/CSS/layout/header.css';
 

@@ -7,13 +7,14 @@
 .subreddit-header-container {
     display: flex;
     flex-flow: column;
-    padding-left: 1rem;
+    padding: 0.5rem;
     margin-top: 0.5rem;
 }
 
 .subreddit-banner {
     border-radius: $rounded-rectangle;
     height: 64px;
+    width: 100%;
     margin-right: 1rem;
     overflow: hidden;
     position: relative;
@@ -79,4 +80,9 @@
     .subreddit-banner {
         height: 128px;
     }
+}
+
+
+.subreddit-ul{
+    padding: 0;
 }

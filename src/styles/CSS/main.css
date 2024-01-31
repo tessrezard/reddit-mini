@@ -70,7 +70,8 @@ a:-webkit-any-link {
 
 .post-layout-container {
   border-top: 1px solid rgb(203, 203, 203);
-  padding: 0.25rem;
+  padding-top: 0.25rem;
+  margin: auto;
 }
 
 #overlay {
@@ -294,8 +295,7 @@ a:-webkit-any-link {
 .searchBarContainer {
   border-radius: 50px;
   border: 1px solid #f2f1f6;
-  margin-left: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem;
   width: clamp(250px, 50%, 800px);
   background-color: rgb(234, 237, 239);
 }
@@ -548,13 +548,14 @@ However, it's still common to see both versions for compatibility reasons.
 .subreddit-header-container {
   display: flex;
   flex-flow: column;
-  padding-left: 1rem;
+  padding: 0.5rem;
   margin-top: 0.5rem;
 }
 
 .subreddit-banner {
   border-radius: 18px;
   height: 64px;
+  width: 100%;
   margin-right: 1rem;
   overflow: hidden;
   position: relative;
@@ -617,6 +618,10 @@ However, it's still common to see both versions for compatibility reasons.
     height: 128px;
   }
 }
+.subreddit-ul {
+  padding: 0;
+}
+
 .home-link {
   height: 60px;
   display: flex;
@@ -645,6 +650,7 @@ body {
 
 ul {
   list-style-type: none; /* Removes bullets from an unordered list */
+  padding: 0;
 }
 
 @media (min-width: 1000px) {

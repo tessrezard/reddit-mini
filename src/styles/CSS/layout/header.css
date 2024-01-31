@@ -2,8 +2,7 @@
 .searchBarContainer {
   border-radius: 50px;
   border: 1px solid #f2f1f6;
-  margin-left: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem;
   width: clamp(250px, 50%, 800px);
   background-color: rgb(234, 237, 239);
 }
