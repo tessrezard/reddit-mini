@@ -1,7 +1,7 @@
 # Reddit Mini
-[Reddit Mini](https://reddit-mini-tr.netlify.app/) is live at https://reddit-mini-tr.netlify.app/ \
+[Reddit Mini](https://reddit-mini-tr.netlify.app/) is live at https://reddit-mini-tr.netlify.app/ 
 
-As this project is frontend-focused, I use be the unofficial JSON API 110 which doesn’t need a backend; it allows you to make requests for read-only Reddit data directly from the browser. \
+As this project is frontend-focused, I use be the unofficial JSON API 110 which doesn’t need a backend; it allows you to make requests for read-only Reddit data directly from the browser. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
