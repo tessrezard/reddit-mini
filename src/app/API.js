@@ -40,8 +40,8 @@ export const getSubredditPosts = async (subreddit) => {
   }
 };
 
+
 //GET COMMENTS for post 
-// (post + comments = thread)
 
 export const getPostComments = async (permalink) => {
   try {
@@ -59,7 +59,7 @@ export const getPostComments = async (permalink) => {
 
 
 
-//////// 
+ 
   //SEARCH FROM SEARCH TERM
 
   export const getSearch = async (term) => {
@@ -69,7 +69,6 @@ export const getPostComments = async (permalink) => {
         throw new Error(`Error fetching data for ${term}: ${response.statusText}`);
       }
       const json = await response.json();
-      console.log('json', json.data.children.map((post) => post.data));
       return json.data.children.map((post) => post.data);
     } catch (error) {
       console.error(`Error fetching data for ${term}:`, error);
@@ -96,3 +95,6 @@ export const getAboutSubreddit = async (subreddit) => {
     throw error;
   }
 };
+
+
+

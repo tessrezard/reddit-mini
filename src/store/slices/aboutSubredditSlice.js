@@ -1,5 +1,5 @@
 // This slice will handle the state related to 
-// fetching and managing a list of subreddits.
+// fetching and managing the about data for a subreddit.
 
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchAboutSubreddit } from '../thunks'; 

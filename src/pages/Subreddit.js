@@ -67,6 +67,7 @@ function Subreddit() {
         return <div>Error: {error}</div>;
     }
 
+
     return (
         <div className="subreddit-page-container">
             {isPopular ?

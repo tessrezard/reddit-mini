@@ -9,7 +9,7 @@ const CommunityIcon = ({ subreddit }) => {
 
 
     const [imageError, setImageError] = useState(false);
-    const communityIconUrl = subreddit.icon_img || subreddit.community_icon;
+    const communityIconUrl = subreddit?.icon_img || subreddit?.community_icon || '';
     let icon;
      try {
         icon = he.decode(communityIconUrl);

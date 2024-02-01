@@ -6,34 +6,61 @@ import CommunityIcon from '../components/CommunityIcon.js'
 import default_community_icon from '../images/default-community-icon.png'; // Replace with the actual path
 import he from 'he'; // Import the HTML entity decoding library
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAboutSubreddit } from '../store/thunks';
+import { fetchAboutMultipleSubreddits } from '../store/thunks';
 import PopularPinned from "./PopularPinned";
 
 const PopularHeader = () => {
 
     const pinned = [
-        { id: 1, name: 'Houseplants', slug: 'houseplants' },
-        { id: 2, name: 'Movies', slug: 'movies' },
-        { id: 3, name: 'Music', slug: 'music' }
+        { id: 0, slug: 'houseplants' },
+        { id: 1, slug: 'movies' },
+        { id: 2, slug: 'webdev' },
+        { id: 3, slug: 'music' },
+        { id: 4, slug: 'dataisbeautiful'},
+        { id: 5, slug: 'mapporn'},
     ]
 
+    const dispatch = useDispatch();
+
+    const { data, loading, error } = useSelector((state) => state.aboutMultipleSubreddits);
+
+    
+    useEffect(() => {
+        const fetchData = async () => {
+            const pinnedSubreddits = ['houseplants', 'movies', 'webdev', 'music', 'dataisbeautiful', 'mapporn'];
+                try {
+                    dispatch(fetchAboutMultipleSubreddits(pinnedSubreddits));
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                }
+            } 
+        fetchData();
+    }, [dispatch]);
+
+    if (loading) {
+        return <>loading</>;
+      }
+    
+      if (error) {
+        return <>error</>;
+      }
 
 
     return (
         <>
-            
-            {/* <div className='popHead-section-container'>
-            {pinned.map((subreddit) => (
-                    <div key={subreddit.slug}>
-                        <Link to={`/r/${subreddit.slug}`} >
-                        <PopularPinned subreddit={subreddit} />
+            <div className='popHead-section-container'>
+            {pinned.map((pin) => (
+                    <div key={pin.slug}>
+                        <Link to={`/r/${pin.slug}`} >
+                             <PopularPinned subreddit={data[pin.id]} />
                         </Link>
                     </div>
                 ))}
-                
-            </div> */}
+
+            </div>
         </>
     );
 };
+
 
 export default PopularHeader;

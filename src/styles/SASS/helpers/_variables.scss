@@ -22,3 +22,9 @@ $reddit-border-grey: 1px solid $reddit-grey-border;
 $tablet: 768px;
 $desktop: 960px;
 $largeDesktop: 1200px;
+
+//Z-ORDER 
+
+// header is highest
+$header-depth: 10;
+$bring-forward: 1;

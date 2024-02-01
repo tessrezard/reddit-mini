@@ -2,14 +2,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getSubredditPosts, getSubreddits, getPostComments, getSearch, getAboutSubreddit} from '../app/API';
 
-// export const fetchSubreddits = createAsyncThunk('subreddits/fetchSubreddits', async () => {
-//   try {
-//     const subreddits = await getSubreddits();
-//     return subreddits;
-//   } catch (error) {
-//     throw error;
-//   }
-// });
 
 export const fetchSubreddits = createAsyncThunk('subreddits/fetchSubreddits', async () => {
   try {
@@ -52,6 +44,17 @@ export const fetchAboutSubreddit = createAsyncThunk('aboutSubreddit/fetchAboutSu
   try {
     const elements = await getAboutSubreddit(subreddit);
     return elements;
+  } catch (error) {
+    throw error;
+  }
+});
+
+
+export const fetchAboutMultipleSubreddits = createAsyncThunk('aboutMultipleSubreddits/fetchAboutMultipleSubreddits', async (subreddits) => {
+  try {
+    const promises = subreddits.map(subreddit => getAboutSubreddit(subreddit));
+    const results = await Promise.all(promises);
+    return results;
   } catch (error) {
     throw error;
   }
