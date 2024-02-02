@@ -2,7 +2,7 @@
     border-top: $reddit-border-grey;
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
-    max-width: 750px;
+    max-width: 700px;
 }
 
 //this is the overlay for the preview of longer self-text
@@ -75,7 +75,9 @@
         background-color: $reddit-img-background;
         border-radius: $rounded-rectangle;
         margin: auto;
-        
+        @media (max-width: 508px) {
+            height: 372px;
+        }
     }
 
     .thumbnail-img {
