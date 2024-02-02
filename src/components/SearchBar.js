@@ -14,7 +14,11 @@ const SearchBar = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate(`/search/${query}`);
+        if (query){
+            navigate(`/search/${query}`);
+        }
+        setQuery('');
+
 
     };
 
