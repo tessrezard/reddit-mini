@@ -4,7 +4,7 @@
     visibility: hidden;
     display: none;
 
-    @media (min-width: 1000px) {
+    @media (min-width: $desktop) {
         visibility: visible;
         display: block;
     }
@@ -22,7 +22,7 @@ a:-webkit-any-link {
     overflow-y: scroll;
     position: sticky;
     top: 56px;
-    width: 249px;
+    width: $navMenu-width;
     height: calc(100vh - $header-height);
     border-right: $reddit-border-grey;
     background-color: $reddit-background;

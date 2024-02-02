@@ -69,6 +69,7 @@ function Subreddit() {
 
 
     return (
+        <>
         <div className="subreddit-page-container">
             {isPopular ?
                 (
@@ -81,7 +82,6 @@ function Subreddit() {
                         <SubredditHeader subreddit={dataAbout} />
                     </>)
             }
-
             <ul className='subreddit-ul' style={{ listStyle: 'none' }}>
                 {data.map((post) => (
                     <div onClick={() => handleLinkClick(post)} key={post.id}>
@@ -90,6 +90,7 @@ function Subreddit() {
                 ))}
             </ul>
         </div>
+        </>
     );
 };
 

@@ -11,14 +11,15 @@ const Root = () => {
                     <Header />
                 </header>
                 <main>
-                    <div className='mainContainer'>
+                    <div className='wholeContainer'>
                         {/* this nav is for wide screens */}
                         <nav className='wide-nav'>
                             <NavMenu />
                         </nav>
-                        <Outlet />
+                        <div className='mainContainer'>
+                            <Outlet />
+                        </div>
                     </div>
-
                 </main>
             </div>
 

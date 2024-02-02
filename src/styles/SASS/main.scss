@@ -35,13 +35,25 @@ ul {
     padding: 0;
 
 }
-@media (min-width: 1000px){
 
+
+@media (min-width: $desktop){
+    //if wide : the nav and main are flex in row
+    // in root.js
+    .wholeContainer{
+        display: flex;
+
+    }
+
+}
+
+    // in root.js
     .mainContainer {
         display: flex;
+        padding: 1rem;
+        max-width: 1094px;
     }
     
-}
 
 .community-icon{
     height: 100%; // to fit container
@@ -55,6 +67,23 @@ ul {
     position: relative;
     top: $header-height;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // <div className='default-community-icon-wrapper'>
 //                 <div className='default-community-icon-text-r' > r </div>

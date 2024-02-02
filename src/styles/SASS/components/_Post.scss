@@ -1,7 +1,8 @@
 .post-layout-container {
     border-top: $reddit-border-grey;
-    padding: 0.25rem;
-    // max-width: 900px;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    max-width: 750px;
 }
 
 //this is the overlay for the preview of longer self-text

@@ -19,6 +19,9 @@
     flex-flow: row wrap;
     background-color: #fff;
     border-bottom: $reddit-border-grey;
+    @media (max-width: $small-phone){
+        height: fit-content;
+    }
 }
 
 .reddit-mini-logo {

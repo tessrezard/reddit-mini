@@ -4,7 +4,7 @@
   visibility: hidden;
   display: none;
 }
-@media (min-width: 1000px) {
+@media (min-width: 960px) {
   .wide-nav {
     visibility: visible;
     display: block;
@@ -97,7 +97,9 @@ a:-webkit-any-link {
 
 .post-layout-container {
   border-top: 1px solid rgb(203, 203, 203);
-  padding: 0.25rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  max-width: 750px;
 }
 
 #overlay {
@@ -268,6 +270,8 @@ a:-webkit-any-link {
 .loading-page-container {
   display: flex;
   margin: auto;
+  width: calc(100vw - 249px);
+  justify-content: center;
   color: rgb(255, 69, 0);
 }
 
@@ -283,12 +287,13 @@ a:-webkit-any-link {
   }
 }
 .loading-container {
-  margin: auto;
   display: flex;
+  margin: auto;
   flex-flow: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100%;
 }
 
 .loading-text {
@@ -394,6 +399,11 @@ a:-webkit-any-link {
 .searchBarContainer:active, .searchBarContainer:hover, .searchBarContainer:focus-within {
   box-shadow: 0px 5px 5px #b8b7bc;
 }
+@media (max-width: 370px) {
+  .searchBarContainer {
+    width: 130px;
+  }
+}
 
 .searchBar {
   display: flex;
@@ -408,6 +418,11 @@ a:-webkit-any-link {
   font-size: 16px;
   border-radius: 50px;
   background-color: rgb(234, 237, 239);
+}
+@media (max-width: 370px) {
+  .searchInput {
+    width: 50px;
+  }
 }
 
 .searchButton {
@@ -570,13 +585,19 @@ However, it's still common to see both versions for compatibility reasons.
   width: 100vw;
   height: 56px;
   display: flex;
-  z-index: 1;
+  z-index: 10;
   justify-content: flex-start;
   align-items: center;
   align-content: center;
   flex-flow: row wrap;
   background-color: #fff;
   border-bottom: 1px solid rgb(203, 203, 203);
+}
+@media (max-width: 370px) {
+  .headerContainer {
+    height: -moz-fit-content;
+    height: fit-content;
+  }
 }
 
 .reddit-mini-logo {
@@ -752,11 +773,17 @@ ul {
   padding: 0;
 }
 
-@media (min-width: 1000px) {
-  .mainContainer {
+@media (min-width: 960px) {
+  .wholeContainer {
     display: flex;
   }
 }
+.mainContainer {
+  display: flex;
+  padding: 1rem;
+  max-width: 1094px;
+}
+
 .community-icon {
   height: 100%;
   width: 100%;
