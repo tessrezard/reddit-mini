@@ -776,6 +776,7 @@ ul {
 @media (min-width: 960px) {
   .wholeContainer {
     display: flex;
+    justify-content: center;
   }
 }
 .mainContainer {
