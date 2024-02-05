@@ -1,12 +1,18 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
+
 import '../styles/CSS/main.css';
 import LeadImage from "../components/LeadImage";
 import { FaComment } from 'react-icons/fa'; // comment/speech bubble icon
 import he from 'he'; // Import the HTML entity decoding library
+// import { useSelector } from 'react-redux';
+// import CommunityIcon from '../components/CommunityIcon';
 
 
 const Post = ({ post }) => {
 
+
+    // const { dataAbout } = useSelector((state) => state.aboutSubreddit);
 
     
     // ----------------------------------------------------------------
@@ -40,7 +46,13 @@ const Post = ({ post }) => {
         } else {
             setShouldShowOverlay(false);
         }
-    }, []);
+        try {
+            // dispatch(fetchAboutSubreddit(post.subreddit));
+        } catch (error) {
+            return <div>Error: {error}</div>;
+        }
+    }, [post]);
+    
 
     // ----------------------------------------------------------------
     // FOR  POST TITLE
@@ -52,9 +64,14 @@ const Post = ({ post }) => {
                 <div className='post-container'>
 
                     <div className='post-header'>
-                        <p className='subreddit-name'>
-                            r/{post.subreddit}
-                        </p>
+                    <Link to={`/r/${post.subreddit}`} className='post-subreddit-container' >
+                                <div className='post-subreddit-icon'>
+                                    {/* <CommunityIcon subreddit={dataAbout} /> */}
+                                </div>
+                                <p className='post-subreddit-name'>
+                                    r/{post.subreddit}
+                                </p>
+                            </Link>
                         <p className='author-name'>
                             u/{post.author}
                         </p>
