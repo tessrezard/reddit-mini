@@ -46,33 +46,47 @@ const LeadImage = ({ post }) => {
     }
 
 
+
+
+
+
+
+    const LeadImage = ({ src, alt, className }) => (
+        <img src={src} alt={alt} className={className} />
+    );
+    
+    const ThumbnailImage = ({ src, alt, className }) => (
+        <img src={src} alt={alt} className={className} />
+    );
+    
+    const SingleImage = ({ src, alt, className }) => (
+        <img src={src} alt={alt} className={className} />
+    );
+    
+    const ImageOrCarousel = ({ urlImg, mediaImgArr, thumbnailImg, post }) => {
+        if (urlImg) {
+            return <LeadImage src={urlImg} alt={post.title} className="lead-img" />;
+        }
+    
+        if (mediaImgArr.length > 1) {
+            return <Carousel mediaArr={mediaImgArr} post={post} />;
+        }
+    
+        if (mediaImgArr.length === 1) {
+            return <SingleImage src={mediaImgArr[0]} alt={post.title} className="lead-img" />;
+        }
+    
+        if (thumbnailImg) {
+            return <ThumbnailImage src={thumbnailImg} alt={post.title} className="thumbnail-img" />;
+        }
+    
+        return null; // No image or thumbnail provided
+    };
+
     return (
-        <>
-            {urlImg ?
-                (<>
-                    <img src={urlImg} alt={post.title} className='lead-img' />
-                </>)
-                :
-                (<>
-                    {mediaImgArr.length > 0 ?
-                        (
-                            <>
-                                <Carousel mediaArr={mediaImgArr} post={post} />
-                            </>) : (
-                            <>
-                                {thumbnailImg ?
-                                    <>
-                                        <img src={thumbnailImg} alt={post.title} className='thumbnail-img' />
-                                    </>
-                                    :
-                                    <>
-                                    </>
-                                }
-                            </>)}
-
-                </>)}
-
-        </>
+         <>
+        <ImageOrCarousel urlImg={urlImg} mediaImgArr={mediaImgArr} thumbnailImg={thumbnailImg} post={post} />
+    </>
     );
 };
 
