@@ -29,7 +29,7 @@ const Post = ({ post }) => {
     const selfTextPreview = useRef(null);
     const [shouldShowOverlay, setShouldShowOverlay] = useState(false);
 
-    
+
     // ----------------------------------------------------------------
     // FOR TEXT OVERLAY
     useEffect(() => {
@@ -42,9 +42,9 @@ const Post = ({ post }) => {
         }
     }, []);
 
-
-
     // ----------------------------------------------------------------
+    // FOR  POST TITLE
+    let postTitle = he.decode(post?.title || '');
 
     return (
         <>
@@ -63,7 +63,7 @@ const Post = ({ post }) => {
                     <div className='post-main'>
 
                         <p className='post-title'>
-                            {post.title}
+                            {postTitle}
                         </p>
 
                         <p className='flair' style={{ backgroundColor: flairBackgroundColor, color: flairTextColor }}>
@@ -82,8 +82,8 @@ const Post = ({ post }) => {
                                 </>
                             )
                             : <></>}
-                        
-                        <LeadImage post={post}/>
+
+                        <LeadImage post={post} />
 
                         <div className='post-bubbles'>
                             <div className='post-ups-bubble'>

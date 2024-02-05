@@ -39,7 +39,12 @@ function Thread() {
     }
     const selfTextPreview = useRef(null);
 
-    
+
+     // FOR  POST TITLE
+     let postTitle = he.decode(post?.title || '');
+
+
+
     useEffect(() => {
         try {
             dispatch(fetchPostComments(he.decode(permalink)));
@@ -57,7 +62,6 @@ function Thread() {
         return <div>Error: {error}</div>;
     }
 
-    // console.log(post)
 
     return (
         <>
@@ -79,7 +83,7 @@ function Thread() {
                         <div className='post-main'>
 
                             <p className='post-title'>
-                                {post.title}
+                                {postTitle}
                             </p>
 
                             <p className='flair' style={{ backgroundColor: flairBackgroundColor, color: flairTextColor }}>
