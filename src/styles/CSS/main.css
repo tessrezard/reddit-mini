@@ -101,6 +101,11 @@ a:-webkit-any-link {
   padding-bottom: 0.25rem;
   max-width: 700px;
 }
+@media (min-width: 768px) {
+  .post-layout-container {
+    padding: 1rem;
+  }
+}
 
 #overlay {
   content: "";
