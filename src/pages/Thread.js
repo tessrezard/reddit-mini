@@ -1,13 +1,15 @@
 import React, { useRef, useEffect, useState, Component } from 'react';
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPostComments } from '../store/thunks';
+// import { fetchPostComments } from '../store/thunks';
+import { fetchPostComments, fetchAboutSubreddit } from '../store/thunks';
 import '../styles/CSS/main.css';
 import Comment from "../components/Comment";
 import he from 'he'; // Import the HTML entity decoding library
 import { FaComment } from 'react-icons/fa'; // comment/speech bubble icon
 import Loading from "../components/Loading";
 import LeadImage from "../components/LeadImage";
+import CommunityIcon from '../components/CommunityIcon';
 
 
 function Thread() {
@@ -21,7 +23,10 @@ function Thread() {
     const dispatch = useDispatch();
     const { data, loading, error } = useSelector((state) => state.postComments);
 
-    
+    //added 
+    const { dataAbout, loadingAbout, errorAbout } = useSelector((state) => state.aboutSubreddit);
+
+
     // FOR FLAIR TAGS
     //they categorize the posts
     const flairBackgroundColor = post.link_flair_background_color;
@@ -40,14 +45,15 @@ function Thread() {
     const selfTextPreview = useRef(null);
 
 
-     // FOR  POST TITLE
-     let postTitle = he.decode(post?.title || '');
+    // FOR  POST TITLE
+    let postTitle = he.decode(post?.title || '');
 
 
 
     useEffect(() => {
         try {
             dispatch(fetchPostComments(he.decode(permalink)));
+            dispatch(fetchAboutSubreddit(post.subreddit));
         } catch (error) {
             return <div>Error: {error}</div>;
         }
@@ -72,9 +78,16 @@ function Thread() {
                     <div className='thread-post-container'>
 
                         <div className='post-header'>
-                            <p className='subreddit-name'>
-                                r/{post.subreddit}
-                            </p>
+                            <Link to={`/r/${post.subreddit}`} className='post-subreddit-container' >
+                                <div className='post-subreddit-icon'>
+                                    <CommunityIcon subreddit={dataAbout} />
+                                </div>
+                                <p className='post-subreddit-name'>
+                                    r/{post.subreddit}
+                                </p>
+                            </Link>
+
+
                             <p>
                                 u/{post.author}
                             </p>

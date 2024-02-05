@@ -130,11 +130,24 @@ a:-webkit-any-link {
   line-height: 1rem;
   margin-top: 1rem;
 }
-.post-header .subreddit-name {
+.post-header .post-subreddit-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.post-header .post-subreddit-icon {
+  height: 24px;
+  width: 24px;
+  margin-right: 5px;
+}
+.post-header .author-name {
+  margin: 0;
+}
+.post-header .post-subreddit-name {
   font-weight: 700;
   margin: 0;
 }
-.post-header .author-name {
+.post-header .post-author-name {
   margin: 0;
 }
 
