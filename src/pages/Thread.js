@@ -23,8 +23,7 @@ function Thread() {
     const dispatch = useDispatch();
     const { data, loading, error } = useSelector((state) => state.postComments);
 
-    //added 
-    const { dataAbout, loadingAbout, errorAbout } = useSelector((state) => state.aboutSubreddit);
+    const { dataAbout } = useSelector((state) => state.aboutSubreddit);
 
 
     // FOR FLAIR TAGS
