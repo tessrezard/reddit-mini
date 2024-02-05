@@ -54,13 +54,13 @@ ul {
 
 }
 
-    // in root.js
+// in root.js
     .mainContainer {
         display: flex;
         padding-top: 1rem;
         max-width: 700px;
         overflow: hidden;
-
+        
     }
     
 
@@ -73,8 +73,12 @@ ul {
 }
 
 .searchResults-page-container {
+    display: flex;
     position: relative;
     top: $header-height;
+    flex-flow: column;
+    overflow-x: hidden;
+
 }
 
 

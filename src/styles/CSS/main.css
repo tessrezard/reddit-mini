@@ -615,11 +615,12 @@ However, it's still common to see both versions for compatibility reasons.
 }
 .headerContainer {
   position: fixed;
+  left: 0;
+  padding: 5px;
   width: 100vw;
   height: 56px;
   display: flex;
   z-index: 10;
-  justify-content: flex-start;
   align-items: center;
   align-content: center;
   flex-flow: row wrap;
@@ -866,6 +867,9 @@ ul {
 }
 
 .searchResults-page-container {
+  display: flex;
   position: relative;
   top: 56px;
+  flex-flow: column;
+  overflow-x: hidden;
 }/*# sourceMappingURL=main.css.map */
