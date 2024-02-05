@@ -139,7 +139,7 @@ function Thread() {
 
 
 
-                <div>
+                <div className='thread-comments-container'>
                     <ul style={{ listStyle: 'none' }}>
                         {data.map((comment) => (
                             <Comment comment={comment} key={comment.id} />

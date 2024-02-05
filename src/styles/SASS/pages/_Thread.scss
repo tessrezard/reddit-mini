@@ -14,3 +14,12 @@
     padding: 1rem;
     
 }
+.thread-comments-container{
+    margin-bottom: 3rem;
+    @media (min-width: $desktop) {
+        margin-bottom: 4rem;
+    }
+    @media (min-width: $large-desktop) {
+        margin-bottom: 4rem;
+    }
+}

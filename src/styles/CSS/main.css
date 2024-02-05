@@ -242,6 +242,17 @@ a:-webkit-any-link {
   margin-right: 2.5px;
 }
 
+@media (min-width: 570px) {
+  .comment-container {
+    padding-left: 1rem;
+  }
+}
+@media (min-width: 960px) {
+  .comment-container {
+    padding-left: 2rem;
+  }
+}
+
 .comment-header .comment-author-name {
   font-size: 0.75rem;
   line-height: 1rem;
@@ -707,6 +718,20 @@ However, it's still common to see both versions for compatibility reasons.
 .thread-post-container {
   border-radius: 18px;
   padding: 1rem;
+}
+
+.thread-comments-container {
+  margin-bottom: 3rem;
+}
+@media (min-width: 960px) {
+  .thread-comments-container {
+    margin-bottom: 4rem;
+  }
+}
+@media (min-width: 1200px) {
+  .thread-comments-container {
+    margin-bottom: 4rem;
+  }
 }
 
 .subreddit-page-container {

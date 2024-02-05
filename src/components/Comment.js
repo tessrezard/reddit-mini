@@ -21,7 +21,7 @@ const Comment = ({ comment }) => {
 
     return (
         <>
-            <div>
+            <div className='comment-container'>
                 <div className='comment-header'>
                     <p className='comment-author-name'>
                         u/{comment.author}
