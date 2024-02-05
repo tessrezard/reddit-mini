@@ -37,10 +37,7 @@ function SearchResults() {
         fetchData();
     }, [dispatch, term]);
 
-    console.log('Redux State:', {
-        search: { data, loading, error },
-        // search: { searchData, searchLoading, searchError },
-    });
+   
 
     if (loading) {
         return <Loading />;

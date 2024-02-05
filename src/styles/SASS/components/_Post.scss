@@ -68,23 +68,7 @@
 
     }
 
-    .lead-img {
-        height: 550px;
-        width: 100%;
-        object-fit: contain;
-        background-color: $reddit-img-background;
-        border-radius: $rounded-rectangle;
-        margin: auto;
-        @media (max-width: 508px) {
-            height: 372px;
-        }
-    }
 
-    .thumbnail-img {
-        height: 100px;
-        object-fit: contain;
-        align-self: flex-start;
-    }
 
     .flair {
         width: fit-content;

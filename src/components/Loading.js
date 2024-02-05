@@ -10,7 +10,7 @@ const Loading = () => {
                     <div className="loading-text">
                         Loading
                     </div>
-                    <div className="dots-container">
+                    <div className="loading-dots-container">
                         <div className="dot-one"></div>
                         <div className="dot-two"></div>
                         <div className="dot-three"></div>

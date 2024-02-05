@@ -9,6 +9,8 @@
 @import 'components/Comment';
 @import 'components/Loading';
 @import 'components/PopularHeader';
+@import 'components/LeadImg';
+
 @import 'layout/header';
 
 @import 'pages/Thread';
@@ -36,8 +38,13 @@ ul {
 
 }
 
+.wholeContainer{
+    display: flex;
+    justify-content: center;
 
-@media (min-width: $desktop){
+}
+
+@media (min-width: $large-desktop){
     //if wide : the nav and main are flex in row
     // in root.js
     .wholeContainer{

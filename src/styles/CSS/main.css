@@ -152,26 +152,6 @@ a:-webkit-any-link {
     font-size: 1.5rem;
   }
 }
-.post-main .lead-img {
-  height: 550px;
-  width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-  background-color: rgb(54, 62, 64);
-  border-radius: 18px;
-  margin: auto;
-}
-@media (max-width: 508px) {
-  .post-main .lead-img {
-    height: 372px;
-  }
-}
-.post-main .thumbnail-img {
-  height: 100px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  align-self: flex-start;
-}
 .post-main .flair {
   width: -moz-fit-content;
   width: fit-content;
@@ -306,7 +286,7 @@ a:-webkit-any-link {
   font-weight: 700;
 }
 
-.dots-container {
+.loading-dots-container {
   display: flex;
   flex-flow: row;
   justify-content: center;
@@ -392,6 +372,54 @@ a:-webkit-any-link {
   font-size: 1.5rem;
   color: rgb(255, 255, 255);
   margin: 0;
+}
+
+.lead-img, .carousel-img {
+  height: 550px;
+  width: 90%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  background-color: rgb(54, 62, 64);
+  border-radius: 18px;
+  margin: auto;
+}
+@media (max-width: 508px) {
+  .lead-img, .carousel-img {
+    height: 372px;
+  }
+}
+
+.carousel-img {
+  z-index: 9;
+  margin: auto;
+  margin-top: 1rem;
+  background-color: none;
+}
+
+.thumbnail-img {
+  height: 100px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  align-self: flex-start;
+}
+
+.slick-arrow {
+  color: black;
+}
+
+.slider-arrow {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+}
+
+.arrow-btn {
+  top: 45%;
+}
+
+.next {
+  float: right;
 }
 
 .searchBarContainer {
@@ -811,7 +839,12 @@ ul {
   padding: 0;
 }
 
-@media (min-width: 960px) {
+.wholeContainer {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 1200px) {
   .wholeContainer {
     display: flex;
     justify-content: center;

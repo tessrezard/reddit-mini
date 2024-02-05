@@ -1,6 +1,8 @@
 import React from 'react';
 import '../styles/CSS/main.css';
 import he from 'he'; // Import the HTML entity decoding library
+import Carousel from './Carousel';
+
 
 const LeadImage = ({ post }) => {
 
@@ -52,24 +54,24 @@ const LeadImage = ({ post }) => {
                 </>)
                 :
                 (<>
-                {mediaImgArr.length > 0 ?
-                (
-                    <>
-                        <img src={mediaImgArr[0]} alt={post.title} className='lead-img' />
-                    </>) : (
-                    <>
-                    {thumbnailImg ?
-                        <>
-                            <img src={thumbnailImg} alt={post.title} className='thumbnail-img' />
-                        </>
-                        :
-                        <>
-                        </>
-                    }
-                    </>)}
-                   
+                    {mediaImgArr.length > 0 ?
+                        (
+                            <>
+                                <Carousel mediaArr={mediaImgArr} post={post} />
+                            </>) : (
+                            <>
+                                {thumbnailImg ?
+                                    <>
+                                        <img src={thumbnailImg} alt={post.title} className='thumbnail-img' />
+                                    </>
+                                    :
+                                    <>
+                                    </>
+                                }
+                            </>)}
+
                 </>)}
-                
+
         </>
     );
 };
