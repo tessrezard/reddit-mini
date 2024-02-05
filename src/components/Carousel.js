@@ -78,7 +78,6 @@ const customDots = dots => (
 
 
 function Carousel({ mediaArr, post }) {
-    console.log(mediaArr);
     const settings = {
         dots: true,
         infinite: true,
