@@ -22,7 +22,7 @@ const PopularHeader = () => {
 
     const dispatch = useDispatch();
 
-    const { data, loading, error } = useSelector((state) => state.aboutMultipleSubreddits);
+    const { dataAboutMultiple, loadingAboutMultiple, errorAboutMultiple } = useSelector((state) => state.aboutMultipleSubreddits);
 
     
     useEffect(() => {
@@ -37,11 +37,11 @@ const PopularHeader = () => {
         fetchData();
     }, [dispatch]);
 
-    if (loading) {
+    if (loadingAboutMultiple) {
         return <>loading</>;
       }
     
-      if (error) {
+      if (errorAboutMultiple) {
         return <>error</>;
       }
 
@@ -52,7 +52,7 @@ const PopularHeader = () => {
             {pinned.map((pin) => (
                     <div key={pin.slug}>
                         <Link to={`/r/${pin.slug}`} >
-                             <PopularPinned subreddit={data[pin.id]} />
+                             <PopularPinned subreddit={dataAboutMultiple[pin.id]} />
                         </Link>
                     </div>
                 ))}

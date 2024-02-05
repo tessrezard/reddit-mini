@@ -8,24 +8,24 @@ import { fetchAboutMultipleSubreddits } from '../thunks';
 const multipleSubredditsSlice = createSlice({
   name: 'aboutMultipleSubreddits',
   initialState: {
-    data: [],  // Use an array
-    loading: false,
-    error: null,
+    dataAboutMultiple: [],  // Use an array
+    loadingAboutMultiple: false,
+    errorAboutMultiple: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchAboutMultipleSubreddits.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+        state.loadingAboutMultiple = true;
+        state.errorAboutMultiple = null;
       })
       .addCase(fetchAboutMultipleSubreddits.fulfilled, (state, action) => {
-        state.data = action.payload; // Set the data to the payload array
-        state.loading = false;
+        state.dataAboutMultiple = action.payload; // Set the data to the payload array
+        state.loadingAboutMultiple = false;
       })
       .addCase(fetchAboutMultipleSubreddits.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message;
+        state.loadingAboutMultiple = false;
+        state.errorAboutMultiple = action.error.message;
       });
   },
 });
