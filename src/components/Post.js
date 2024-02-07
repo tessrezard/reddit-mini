@@ -9,12 +9,23 @@ import { useSelector } from 'react-redux';
 import CommunityIcon from '../components/CommunityIcon';
 
 
-const Post = ({ post }) => {
+const Post = ({ post, aboutSubreddit }) => {
 
 
-    const { dataAbout } = useSelector((state) => state.aboutSubreddit);
+
+    // const aboutThisSubreddit = () => (aboutSubreddit ? aboutSubreddit : dataAbout);
 
     
+    const { dataAbout } = useSelector((state) => state.aboutSubreddit);
+
+    let aboutThisSubreddit;
+    if (aboutSubreddit) {
+        console.log('aboutSubreddit', aboutSubreddit);
+        aboutThisSubreddit = aboutSubreddit;
+    } else {
+        aboutThisSubreddit = dataAbout;
+
+    }
     // ----------------------------------------------------------------
     // FOR FLAIR TAGS
     //they categorize the posts
@@ -66,7 +77,7 @@ const Post = ({ post }) => {
                     <div className='post-header'>
                     <Link to={`/r/${post.subreddit}`} className='post-subreddit-container' >
                                 <div className='post-subreddit-icon'>
-                                    <CommunityIcon subreddit={dataAbout} />
+                                    <CommunityIcon subreddit={aboutThisSubreddit} />
                                 </div>
                                 <p className='post-subreddit-name'>
                                     r/{post.subreddit}

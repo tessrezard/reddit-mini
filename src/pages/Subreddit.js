@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSubredditPosts, fetchAboutSubreddit } from '../store/thunks';
+import { fetchSubredditPosts, fetchAboutSubreddit, fetchAboutMultipleSubreddits } from '../store/thunks';
 import Post from '../components/Post'
 import '../styles/CSS/main.css';
 import SubredditHeader from '../components/SubredditHeader';
@@ -32,10 +32,11 @@ function Subreddit() {
     const dispatch = useDispatch();
     const { data, loading, error } = useSelector((state) => state.subredditPosts);
     const { dataAbout, loadingAbout, errorAbout } = useSelector((state) => state.aboutSubreddit);
+    const { dataAboutMultiple, loadingAboutMultiple, errorAboutMultiple } = useSelector((state) => state.aboutMultipleSubreddits);
 
     const isPopular = subreddit === 'popular';
 
-
+    // if regular subreddit
     useEffect(() => {
         window.scrollTo(0, 0);
         const fetchData = async () => {
@@ -53,11 +54,35 @@ function Subreddit() {
                     console.error('Error fetching data:', error);
                 }
             }
-
         };
         fetchData();
-
     }, [dispatch, subreddit]);
+
+
+
+
+    let subredditsArr = [];
+    for (let n in data) {
+        subredditsArr.push(data[n].subreddit)
+    }
+    // console.log(subredditsArr);
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        const fetchData = async () => {
+            if (isPopular && data) {
+                try {
+                    dispatch(fetchAboutMultipleSubreddits(subredditsArr));
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                }
+            }
+        };
+        fetchData();
+    }, [dispatch, data]);
+
+
 
 
     if (loading) {
@@ -70,26 +95,44 @@ function Subreddit() {
 
     return (
         <>
-        <div className="subreddit-page-container">
-            {isPopular ?
-                (
-                    <>
-                        <PopularHeader />
-                    </>)
-                :
-                (
-                    <>
-                        <SubredditHeader subreddit={dataAbout} />
-                    </>)
-            }
-            <ul className='subreddit-ul' style={{ listStyle: 'none' }}>
-                {data.map((post) => (
-                    <div onClick={() => handleLinkClick(post)} key={post.id}>
-                        <Post post={post} />
-                    </div>
-                ))}
-            </ul>
-        </div>
+            <div className="subreddit-page-container">
+                {isPopular ?
+                    (
+                        <>
+                            <PopularHeader />
+                        </>
+                    ) : (
+                        <>
+                            <SubredditHeader subreddit={dataAbout} />
+                        </>
+                    )
+                }
+
+                {isPopular ?
+                    (
+                        <>
+                            <ul className='subreddit-ul' style={{ listStyle: 'none' }}>
+                                {data.map((post, index) => (
+                                    <div onClick={() => handleLinkClick(post)} key={post.id}>
+                                        <Post post={post} aboutSubreddit={dataAboutMultiple[index]}/>
+                                    </div>
+                                ))}
+                            </ul>
+                        </>
+                    ) : (
+                        <>
+                            <ul className='subreddit-ul' style={{ listStyle: 'none' }}>
+                                {data.map((post) => (
+                                    <div onClick={() => handleLinkClick(post)} key={post.id}>
+                                        <Post post={post} />
+                                    </div>
+                                ))}
+                            </ul>
+                        </>
+                    )
+                }
+
+            </div>
         </>
     );
 };
