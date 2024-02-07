@@ -50,6 +50,17 @@ export const fetchAboutSubreddit = createAsyncThunk('aboutSubreddit/fetchAboutSu
 });
 
 
+export const fetchAboutPinnedSubreddits = createAsyncThunk('aboutPinnedSubreddits/fetchAboutPinnedSubreddits', async (subreddits) => {
+  try {
+    const promises = subreddits.map(subreddit => getAboutSubreddit(subreddit));
+    const results = await Promise.all(promises);
+    return results;
+  } catch (error) {
+    throw error;
+  }
+});
+
+
 export const fetchAboutMultipleSubreddits = createAsyncThunk('aboutMultipleSubreddits/fetchAboutMultipleSubreddits', async (subreddits) => {
   try {
     const promises = subreddits.map(subreddit => getAboutSubreddit(subreddit));

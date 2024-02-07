@@ -6,7 +6,7 @@ import CommunityIcon from '../components/CommunityIcon.js'
 import default_community_icon from '../images/default-community-icon.png'; // Replace with the actual path
 import he from 'he'; // Import the HTML entity decoding library
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAboutMultipleSubreddits } from '../store/thunks';
+import { fetchAboutMultipleSubreddits, fetchAboutPinnedSubreddits } from '../store/thunks';
 import PopularPinned from "./PopularPinned";
 
 const PopularHeader = () => {
@@ -22,14 +22,15 @@ const PopularHeader = () => {
 
     const dispatch = useDispatch();
 
-    const { dataAboutMultiple, loadingAboutMultiple, errorAboutMultiple } = useSelector((state) => state.aboutMultipleSubreddits);
+    // const { dataAboutMultiple, loadingAboutMultiple, errorAboutMultiple } = useSelector((state) => state.aboutMultipleSubreddits);
+    const { dataAboutPinned, loadingAboutPinned, errorAboutPinned } = useSelector((state) => state.aboutPinnedSubreddits);
 
     
     useEffect(() => {
         const fetchData = async () => {
             const pinnedSubreddits = ['houseplants', 'movies', 'webdev', 'music', 'dataisbeautiful', 'mapporn'];
                 try {
-                    dispatch(fetchAboutMultipleSubreddits(pinnedSubreddits));
+                    dispatch(fetchAboutPinnedSubreddits(pinnedSubreddits));
                 } catch (error) {
                     console.error('Error fetching data:', error);
                 }
@@ -37,11 +38,11 @@ const PopularHeader = () => {
         fetchData();
     }, [dispatch]);
 
-    if (loadingAboutMultiple) {
+    if (loadingAboutPinned) {
         return <>loading</>;
       }
     
-      if (errorAboutMultiple) {
+      if (errorAboutPinned) {
         return <>error</>;
       }
 
@@ -52,7 +53,7 @@ const PopularHeader = () => {
             {pinned.map((pin) => (
                     <div key={pin.slug}>
                         <Link to={`/r/${pin.slug}`} >
-                             <PopularPinned subreddit={dataAboutMultiple[pin.id]} />
+                             <PopularPinned subreddit={dataAboutPinned[pin.id]} />
                         </Link>
                     </div>
                 ))}

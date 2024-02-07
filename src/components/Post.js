@@ -5,14 +5,14 @@ import '../styles/CSS/main.css';
 import LeadImage from "../components/LeadImage";
 import { FaComment } from 'react-icons/fa'; // comment/speech bubble icon
 import he from 'he'; // Import the HTML entity decoding library
-// import { useSelector } from 'react-redux';
-// import CommunityIcon from '../components/CommunityIcon';
+import { useSelector } from 'react-redux';
+import CommunityIcon from '../components/CommunityIcon';
 
 
 const Post = ({ post }) => {
 
 
-    // const { dataAbout } = useSelector((state) => state.aboutSubreddit);
+    const { dataAbout } = useSelector((state) => state.aboutSubreddit);
 
     
     // ----------------------------------------------------------------
@@ -66,7 +66,7 @@ const Post = ({ post }) => {
                     <div className='post-header'>
                     <Link to={`/r/${post.subreddit}`} className='post-subreddit-container' >
                                 <div className='post-subreddit-icon'>
-                                    {/* <CommunityIcon subreddit={dataAbout} /> */}
+                                    <CommunityIcon subreddit={dataAbout} />
                                 </div>
                                 <p className='post-subreddit-name'>
                                     r/{post.subreddit}
