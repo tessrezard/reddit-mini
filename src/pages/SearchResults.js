@@ -78,7 +78,8 @@ function SearchResults() {
     return (
         <div className="searchResults-page-container">
             <div className="searchResults-header">
-            <p>Search Results for {term}</p>
+            <p>Search Results for:</p>
+            <p>{term}</p>
 
             </div>
 

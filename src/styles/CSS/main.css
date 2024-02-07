@@ -868,6 +868,33 @@ However, it's still common to see both versions for compatibility reasons.
   width: 50px;
 }
 
+.searchResults-page-container {
+  display: flex;
+  position: relative;
+  top: 56px;
+  flex-flow: column;
+  overflow-x: hidden;
+}
+
+.searchResults-header {
+  background-color: rgb(234, 237, 239);
+  height: 31px;
+  padding: 1rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchResults-header p {
+  padding-right: 5px;
+}
+.searchResults-header p:nth-child(2) {
+  color: black;
+  font-weight: 600;
+}
+
 html {
   font-size: 16px;
 }
@@ -907,12 +934,4 @@ ul {
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.searchResults-page-container {
-  display: flex;
-  position: relative;
-  top: 56px;
-  flex-flow: column;
-  overflow-x: hidden;
 }/*# sourceMappingURL=main.css.map */

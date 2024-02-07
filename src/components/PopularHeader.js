@@ -38,11 +38,11 @@ const PopularHeader = () => {
     }, [dispatch]);
 
     if (loadingAboutPinned) {
-        return <>loading</>;
+        return <></>;
       }
     
       if (errorAboutPinned) {
-        return <>error</>;
+        return <></>;
       }
 
 
