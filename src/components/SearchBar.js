@@ -13,6 +13,7 @@ const SearchBar = () => {
     };
 
     const handleSubmit = (e) => {
+        window.scrollTo(0, 0);
         e.preventDefault();
         if (query){
             navigate(`/search/${query}`);

@@ -6,7 +6,7 @@ import CommunityIcon from '../components/CommunityIcon.js'
 import default_community_icon from '../images/default-community-icon.png'; // Replace with the actual path
 import he from 'he'; // Import the HTML entity decoding library
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAboutMultipleSubreddits, fetchAboutPinnedSubreddits } from '../store/thunks';
+import { fetchAboutPinnedSubreddits } from '../store/thunks';
 import PopularPinned from "./PopularPinned";
 
 const PopularHeader = () => {
@@ -22,7 +22,6 @@ const PopularHeader = () => {
 
     const dispatch = useDispatch();
 
-    // const { dataAboutMultiple, loadingAboutMultiple, errorAboutMultiple } = useSelector((state) => state.aboutMultipleSubreddits);
     const { dataAboutPinned, loadingAboutPinned, errorAboutPinned } = useSelector((state) => state.aboutPinnedSubreddits);
 
     
