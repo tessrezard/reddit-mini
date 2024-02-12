@@ -99,7 +99,7 @@ a:-webkit-any-link {
   border-top: 1px solid rgb(203, 203, 203);
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-  max-width: 700px;
+  max-width: 1200px;
 }
 @media (min-width: 768px) {
   .post-layout-container {
@@ -165,9 +165,9 @@ a:-webkit-any-link {
   font-weight: 600;
   margin-bottom: 1rem;
 }
-@media (min-width: 750px) {
+@media (min-width: 768px) {
   .post-main .post-title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 }
 .post-main .flair {
@@ -930,7 +930,8 @@ body {
 }
 
 ul {
-  list-style-type: none; /* Removes bullets from an unordered list */
+  list-style-type: none;
+  /* Removes bullets from an unordered list */
   padding: 0;
 }
 
@@ -952,8 +953,12 @@ ul {
 .mainContainer {
   display: flex;
   padding-top: 1rem;
-  max-width: 700px;
   overflow: hidden;
+}
+@media (min-width: 1200px) {
+  .mainContainer {
+    width: 1200px;
+  }
 }
 
 .community-icon {

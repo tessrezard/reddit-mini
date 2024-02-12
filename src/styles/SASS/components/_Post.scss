@@ -2,7 +2,7 @@
     border-top: $reddit-border-grey;
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
-    max-width: 700px;
+    max-width: 1200px;
     @media (min-width: $tablet){
         padding: 1rem;
     }
@@ -83,8 +83,8 @@
         margin-bottom: 1rem;
 
 
-        @media (min-width: 750px) {
-            font-size: 1.5rem;
+        @media (min-width: $tablet) {
+            font-size: 1.25rem;
         }
 
     }

@@ -34,12 +34,14 @@ body {
 }
 
 ul {
-    list-style-type: none; /* Removes bullets from an unordered list */
+    list-style-type: none;
+    /* Removes bullets from an unordered list */
     padding: 0;
 
 }
 
-.wholeContainer{
+// in root.js
+.wholeContainer {
     display: flex;
     position: relative;
     top: $header-height;
@@ -47,29 +49,29 @@ ul {
     // justify-content: center;
     width: 100vw;
     justify-content: center;
-    @media (min-width: $large-desktop){
+
+    @media (min-width: $large-desktop) {
         //if wide : the nav and main are flex in row
-        // in root.js
-            display: flex;
-            justify-content: center;
-        }
-    
-    
+        display: flex;
+        justify-content: center;
+    }
+
+
 }
 
 
-
 // in root.js
-    .mainContainer {
-        display: flex;
-        padding-top: 1rem;
-        max-width: 700px;
-        overflow: hidden;
-        
+.mainContainer {
+    display: flex;
+    padding-top: 1rem;
+    overflow: hidden;
+    @media (min-width: $large-desktop){
+        width: 1200px;
     }
-    
+}
 
-.community-icon{
+
+.community-icon {
     height: 100%; // to fit container
     width: 100%;
     margin-right: 0.5rem;
