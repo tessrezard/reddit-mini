@@ -1,26 +1,28 @@
 .searchResults-page-container {
     display: flex;
     position: relative;
-    top: $header-height;
+    // top: $header-height;
     flex-flow: column;
     overflow-x: hidden;
 
 }
 
+.searchResults-header-container{
+    // border-bottom: $reddit-border-grey;
+
+}
 .searchResults-header{
     background-color: $reddit-grey;
-    height:31px;
+    height: 31px;
     padding: 1rem;
     margin: 1rem;
-    margin-bottom: 0;
-
+    // margin-bottom: 0;
     border-radius: $rounded-rectangle;
     display: flex;
     justify-content: center;
-align-items: center;
+    align-items: center;
     p{
         padding-right: 5px;
-    
         &:nth-child(2) {
             color: black; 
             font-weight: 600; 
@@ -28,13 +30,15 @@ align-items: center;
 }
 
 .searchResults-no-results-container{
-    // height: 100px;
-    // width: 700px;
-    // max-width: 700px;
-    // display: flex;
-    // justify-content: center;
+    height: 100px;
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    border-top: $reddit-border-grey;
+
 }
 
 .searchResults-no-results-body{
-
-}
+} 

@@ -12,7 +12,6 @@ const Root = () => {
                 </header>
                 <main>
                     <div className='wholeContainer'>
-                        {/* this nav is for wide screens */}
                         <nav className='wide-nav'>
                             <NavMenu />
                         </nav>

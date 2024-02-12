@@ -79,25 +79,25 @@ function SearchResults() {
 
     return (
         <div className="searchResults-page-container">
-            <div className="searchResults-header">
-                <p>Search Results for:</p>
-                <p>{term}</p>
+            <div className="searchResults-header-container">
 
+                <div className="searchResults-header">
+                    <p>Search Results for:</p>
+                    <p>{term}</p>
+
+                </div>
             </div>
+
             {noResults ?
                 (
                     <>
-                        <div className="post-layout-container">
-                            <div className="post-container">
-                                <div className="post-header"></div>
-                                <div className="post-main"></div>
-                            </div>
+                        <div className="searchResults-no-results-container">
                             <p className="searchResults-no-results-body">No results</p>
                         </div>
                     </>
                 ) : (
                     <>
-                        <ul style={{ listStyle: 'none' }}>
+                        <ul style={{ listStyle: 'none', position: 'relative', bottom: 16 }}>
                             {data.map((post, index) => (
                                 <div onClick={() => handleLinkClick(post)} key={post.id}>
                                     <Post post={post} aboutSubreddit={dataAboutMultiple[index]} />

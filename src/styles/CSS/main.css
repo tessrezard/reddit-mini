@@ -711,7 +711,6 @@ However, it's still common to see both versions for compatibility reasons.
   display: flex;
   flex-flow: column;
   position: relative;
-  top: 56px;
   overflow-x: hidden;
 }
 
@@ -737,7 +736,6 @@ However, it's still common to see both versions for compatibility reasons.
 .subreddit-page-container {
   display: flex;
   position: relative;
-  top: 56px;
   flex-flow: column;
   overflow-x: hidden;
 }
@@ -871,7 +869,6 @@ However, it's still common to see both versions for compatibility reasons.
 .searchResults-page-container {
   display: flex;
   position: relative;
-  top: 56px;
   flex-flow: column;
   overflow-x: hidden;
 }
@@ -881,7 +878,6 @@ However, it's still common to see both versions for compatibility reasons.
   height: 31px;
   padding: 1rem;
   margin: 1rem;
-  margin-bottom: 0;
   border-radius: 18px;
   display: flex;
   justify-content: center;
@@ -893,6 +889,16 @@ However, it's still common to see both versions for compatibility reasons.
 .searchResults-header p:nth-child(2) {
   color: black;
   font-weight: 600;
+}
+
+.searchResults-no-results-container {
+  height: 100px;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  border-top: 1px solid rgb(203, 203, 203);
 }
 
 html {
@@ -912,6 +918,8 @@ ul {
 
 .wholeContainer {
   display: flex;
+  position: relative;
+  top: 56px;
 }
 
 @media (min-width: 1200px) {

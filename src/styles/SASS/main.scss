@@ -41,6 +41,8 @@ ul {
 
 .wholeContainer{
     display: flex;
+    position: relative;
+    top: $header-height;
     // justify-content: center;
 
 }
