@@ -16,11 +16,7 @@ function Subreddit() {
 
     const handleLinkClick = (post) => {
         // Use navigate to append the new route to the existing URL
-        console.log(post.title);
-        let decoded = he.decode(post.title);
-        console.log(decoded);
         const modifiedTitle = post.title.replace(/\s/g, '_').replace(/\//g, '_').toLowerCase();
-        console.log(post.url);
         try {
             navigate(`../comments/${modifiedTitle}`, { state: { post: post } });
         } catch (error) {
@@ -31,8 +27,8 @@ function Subreddit() {
 
     const dispatch = useDispatch();
     const { data, loading, error } = useSelector((state) => state.subredditPosts);
-    const { dataAbout, loadingAbout, errorAbout } = useSelector((state) => state.aboutSubreddit);
-    const { dataAboutMultiple, loadingAboutMultiple, errorAboutMultiple } = useSelector((state) => state.aboutMultipleSubreddits);
+    const { dataAbout } = useSelector((state) => state.aboutSubreddit);
+    const { dataAboutMultiple } = useSelector((state) => state.aboutMultipleSubreddits);
 
     const isPopular = subreddit === 'popular';
 

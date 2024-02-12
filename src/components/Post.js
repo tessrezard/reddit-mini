@@ -20,7 +20,7 @@ const Post = ({ post, aboutSubreddit }) => {
 
     let aboutThisSubreddit;
     if (aboutSubreddit) {
-        console.log('aboutSubreddit', aboutSubreddit);
+        // console.log('aboutSubreddit', aboutSubreddit);
         aboutThisSubreddit = aboutSubreddit;
     } else {
         aboutThisSubreddit = dataAbout;
