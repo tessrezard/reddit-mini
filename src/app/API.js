@@ -100,8 +100,12 @@ export const getAboutSubreddit = async (subreddit) => {
 
     const json = await response.json();
 
-    // Store data in local storage
-    localStorage.setItem(`aboutSubreddit_${subreddit}`, JSON.stringify(json.data));
+    // Try to Store data in local storage
+    try {
+      localStorage.setItem(`aboutSubreddit_${subreddit}`, JSON.stringify(json.data));
+    } catch (error) {
+      localStorage.clear();
+    }
     // console.log(`Fetched and cached 'about' data for ${subreddit}:`, json.data);
     return json.data;
   } catch (error) {
@@ -109,3 +113,6 @@ export const getAboutSubreddit = async (subreddit) => {
     throw error;
   }
 };
+
+
+// so as not to exceed local storage, clear it when it's full.
