@@ -425,6 +425,36 @@ a:-webkit-any-link {
   background-color: none;
 }
 
+.lead-video {
+  height: 157px;
+  width: 280px;
+  margin: auto;
+}
+@media (min-width: 370px) {
+  .lead-video {
+    height: 208px;
+    width: 370px;
+  }
+}
+@media (min-width: 570px) {
+  .lead-video {
+    height: 320px;
+    width: 570px;
+  }
+}
+@media (min-width: 768px) {
+  .lead-video {
+    height: 431px;
+    width: 768px;
+  }
+}
+@media (min-width: 1200px) {
+  .lead-video {
+    height: 538px;
+    width: 900px;
+  }
+}
+
 .thumbnail-img {
   height: 100px;
   -o-object-fit: contain;

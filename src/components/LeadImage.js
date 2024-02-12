@@ -14,7 +14,7 @@ const LeadImage = ({ post }) => {
     let urlImg;
     let mediaImgArr = [];
     let thumbnailImg;
-
+    let iframeHTML;
     if (post.url) {
         if (post.url.endsWith('.jpeg') || post.url.endsWith('.jpg') || post.url.endsWith('.png')) {
             urlImg = post.url;
@@ -46,47 +46,67 @@ const LeadImage = ({ post }) => {
     }
 
 
+    // console.log(post.post_hint); 
+    const isVideo = post.post_hint?.includes('video');
+    if (isVideo) {
+        let whatKindOfVideo = post.post_hint;
+        if (post.media_embed.content) {
+            iframeHTML = he.decode(post.media_embed.content);
+            iframeHTML = iframeHTML.replace(/width="\d+"/,  'width="100%"').replace(/height="\d+"/,  'height="100%"');
+        }
 
+    }
+    console.log(iframeHTML);
 
-
-
+    // options : 
 
     const LeadImage = ({ src, alt, className }) => (
         <img src={src} alt={alt} className={className} />
     );
-    
+
     const ThumbnailImage = ({ src, alt, className }) => (
         <img src={src} alt={alt} className={className} />
     );
-    
+
     const SingleImage = ({ src, alt, className }) => (
         <img src={src} alt={alt} className={className} />
     );
-    
-    const ImageOrCarousel = ({ urlImg, mediaImgArr, thumbnailImg, post }) => {
+
+    const Video = ({ }) => (
+        <div dangerouslySetInnerHTML={{ __html: iframeHTML }} className='lead-video' />
+    );
+
+
+    // pick the right option: 
+
+    const LeadMedia = ({ urlImg, mediaImgArr, thumbnailImg, post }) => {
         if (urlImg) {
             return <LeadImage src={urlImg} alt={post.title} className="lead-img" />;
         }
-    
+
         if (mediaImgArr.length > 1) {
             return <Carousel mediaArr={mediaImgArr} post={post} />;
         }
-    
+
         if (mediaImgArr.length === 1) {
             return <SingleImage src={mediaImgArr[0]} alt={post.title} className="lead-img" />;
         }
-    
+
+        if (isVideo) {
+            return <Video />;
+        }
+
         if (thumbnailImg) {
             return <ThumbnailImage src={thumbnailImg} alt={post.title} className="thumbnail-img" />;
         }
-    
+
         return null; // No image or thumbnail provided
     };
 
     return (
-         <>
-        <ImageOrCarousel urlImg={urlImg} mediaImgArr={mediaImgArr} thumbnailImg={thumbnailImg} post={post} />
-    </>
+        <>
+            <LeadMedia urlImg={urlImg} mediaImgArr={mediaImgArr} thumbnailImg={thumbnailImg} post={post} />
+        </>
     );
 };
 

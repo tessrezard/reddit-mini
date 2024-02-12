@@ -21,6 +21,28 @@
 
 }
 
+.lead-video {
+    height: 157px;
+    width: 280px;
+    margin: auto;
+    @media (min-width: $small-phone) {
+        height: 208px;
+        width: 370px;
+    }
+    @media (min-width: $wide-phone) {
+        height: 320px;
+        width: 570px;
+    }
+    @media (min-width: $tablet) {
+        height: 431px;
+        width: 768px;
+    }
+    @media (min-width: $large-desktop) {
+        height: 538px;
+        width: 900px;
+    }
+}
+
 .thumbnail-img {
     height: 100px;
     object-fit: contain;
