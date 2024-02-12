@@ -16,7 +16,8 @@ const SearchBar = () => {
         window.scrollTo(0, 0);
         e.preventDefault();
         if (query){
-            navigate(`/search/${query}`);
+            const validQuery = query.replace(/\//g, '_');
+            navigate(`/search/${validQuery}`);
         }
         setQuery('');
 
