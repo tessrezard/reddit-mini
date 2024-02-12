@@ -92,7 +92,7 @@ function SearchResults() {
                 (
                     <>
                         <div className="searchResults-no-results-container">
-                            <p className="searchResults-no-results-body">No results</p>
+                            <p>No results</p>
                         </div>
                     </>
                 ) : (

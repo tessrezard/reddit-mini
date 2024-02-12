@@ -31,14 +31,22 @@
 
 .searchResults-no-results-container{
     height: 100px;
-    width: 100%;
-    max-width: 700px;
+    // background-color: green;
     display: flex;
+    align-items: center;
     justify-content: center;
-    position: relative;
     border-top: $reddit-border-grey;
-
+    @media (min-width: $small-phone){
+        width: 370px;
+        // background-color: navajowhite;
+    }
+    @media (min-width: $wide-phone){
+        width: 570px;
+    }
+    @media (min-width: $tablet){
+        width: 768px;
+    }
+    @media (min-width: $desktop){
+        width: 700px;
+    }
 }
-
-.searchResults-no-results-body{
-} 
