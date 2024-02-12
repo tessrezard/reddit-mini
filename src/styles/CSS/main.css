@@ -880,8 +880,8 @@ However, it's still common to see both versions for compatibility reasons.
   background-color: rgb(234, 237, 239);
   height: 31px;
   padding: 1rem;
-  margin-left: 1rem;
-  margin-top: 1rem;
+  margin: 1rem;
+  margin-bottom: 0;
   border-radius: 18px;
   display: flex;
   justify-content: center;

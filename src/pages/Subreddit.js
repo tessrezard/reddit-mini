@@ -7,7 +7,6 @@ import '../styles/CSS/main.css';
 import SubredditHeader from '../components/SubredditHeader';
 import PopularHeader from "../components/PopularHeader";
 import Loading from "../components/Loading";
-import he from 'he'; // Import the HTML entity decoding library
 
 function Subreddit() {
     const { subreddit } = useParams();

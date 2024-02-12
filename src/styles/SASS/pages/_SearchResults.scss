@@ -11,8 +11,8 @@
     background-color: $reddit-grey;
     height:31px;
     padding: 1rem;
-    margin-left: 1rem;
-    margin-top: 1rem;
+    margin: 1rem;
+    margin-bottom: 0;
 
     border-radius: $rounded-rectangle;
     display: flex;
@@ -25,4 +25,16 @@ align-items: center;
             color: black; 
             font-weight: 600; 
           }}
+}
+
+.searchResults-no-results-container{
+    // height: 100px;
+    // width: 700px;
+    // max-width: 700px;
+    // display: flex;
+    // justify-content: center;
+}
+
+.searchResults-no-results-body{
+
 }

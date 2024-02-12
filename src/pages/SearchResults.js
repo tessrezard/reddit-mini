@@ -35,7 +35,7 @@ function SearchResults() {
         fetchData();
     }, [dispatch, term]);
 
-   
+
 
     let subredditsArr = [];
     for (let n in data) {
@@ -47,7 +47,7 @@ function SearchResults() {
     useEffect(() => {
         window.scrollTo(0, 0);
         const fetchData = async () => {
-            if ( data ) {
+            if (data) {
                 try {
                     dispatch(fetchAboutMultipleSubreddits(subredditsArr));
                 } catch (error) {
@@ -58,6 +58,8 @@ function SearchResults() {
         fetchData();
     }, [dispatch, data]);
 
+
+    const noResults = data.length < 1;
 
 
     if (loading) {
@@ -78,18 +80,33 @@ function SearchResults() {
     return (
         <div className="searchResults-page-container">
             <div className="searchResults-header">
-            <p>Search Results for:</p>
-            <p>{term}</p>
+                <p>Search Results for:</p>
+                <p>{term}</p>
 
             </div>
+            {noResults ?
+                (
+                    <>
+                        <div className="post-layout-container">
+                            <div className="post-container">
+                                <div className="post-header"></div>
+                                <div className="post-main"></div>
+                            </div>
+                            <p className="searchResults-no-results-body">No results</p>
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <ul style={{ listStyle: 'none' }}>
+                            {data.map((post, index) => (
+                                <div onClick={() => handleLinkClick(post)} key={post.id}>
+                                    <Post post={post} aboutSubreddit={dataAboutMultiple[index]} />
+                                </div>
+                            ))}
+                        </ul>
+                    </>
+                )}
 
-            <ul style={{ listStyle: 'none' }}>
-                {data.map((post, index) => (
-                    <div onClick={() => handleLinkClick(post)} key={post.id}>
-                        <Post post={post}  aboutSubreddit={dataAboutMultiple[index]}/>
-                    </div>
-                ))}
-            </ul>
         </div>
     );
 };
