@@ -22,11 +22,12 @@ a:-webkit-any-link {
     overflow-y: scroll;
     position: sticky;
     top: 56px;
+    // right: 1rem;
     width: $navMenu-width;
     height: calc(100vh - $header-height);
     border-right: $reddit-border-grey;
     background-color: $reddit-background;
-
+    
    
 }
 

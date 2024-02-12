@@ -633,7 +633,7 @@ However, it's still common to see both versions for compatibility reasons.
   top: 57px;
   right: 0;
   bottom: 0;
-  left: 1rem;
+  left: 0;
   z-index: 2;
 }
 
