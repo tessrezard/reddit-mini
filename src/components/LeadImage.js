@@ -75,12 +75,14 @@ const LeadImage = ({ post }) => {
                 hls_url = post.media.reddit_video.hsl_url;
                 fallback_url = post.media.reddit_video.fallback_url;
                 scrubber_media_url = post.media.reddit_video.scrubber_media_url;
+                console.log(post);
             }
 
         }
     }
 
     const selectedVideoUrl = dash_url || hls_url || fallback_url || scrubber_media_url;
+
 
 
 
@@ -105,20 +107,6 @@ const LeadImage = ({ post }) => {
     );
 
 
-    // const VideoHostedXX = ({ className }) => (
-    //     <iframe
-    //         className={className}
-    //         src={selectedVideoUrl}
-    //         width="100%"
-    //         height="100%"
-    //         title="Streamable embed"
-    //         frameBorder="0"
-    //         loading='lazy'
-    //         allow=" fullscreen; encrypted-media; picture-in-picture;"
-    //         >
-    //     </iframe>
-    // );
-
     const VideoHosted = ({ className }) => (
         <video
             controls
@@ -126,13 +114,10 @@ const LeadImage = ({ post }) => {
             className={className}
             width="100%"
             height="100%"
-            frameBorder="0"
             loading='lazy'
-            muted={false} 
             allow=" fullscreen; encrypted-media; picture-in-picture;"
         >
-            <source src={selectedVideoUrl}
-            />
+            <source src={selectedVideoUrl}/>
         </video>
     );
 
