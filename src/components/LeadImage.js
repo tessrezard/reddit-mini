@@ -11,16 +11,18 @@ const LeadImage = ({ post }) => {
     //  post.media_metadata works (for several images usually)
     //  post.thumbnail
 
+    // -------------------------------------
+    // FOR URL IMAGE 
     let urlImg;
-    let mediaImgArr = [];
-    let thumbnailImg;
-    let iframeHTML;
     if (post.url) {
         if (post.url.endsWith('.jpeg') || post.url.endsWith('.jpg') || post.url.endsWith('.png')) {
             urlImg = post.url;
         }
     }
 
+    // -------------------------------------
+    // FOR CAROUSSEL 
+    let mediaImgArr = [];
     let mediaImg;
     if (post.media_metadata) {
         const mediaObj = post.media_metadata;
@@ -39,6 +41,9 @@ const LeadImage = ({ post }) => {
     }
 
 
+    // -------------------------------------
+    // FOR THUMBNAIL 
+    let thumbnailImg;
     if (post.thumbnail) {
         if (post.thumbnail.endsWith('.jpeg') || post.thumbnail.endsWith('.jpg') || post.thumbnail.endsWith('.png')) {
             thumbnailImg = post.thumbnail;
@@ -46,18 +51,41 @@ const LeadImage = ({ post }) => {
     }
 
 
-    // console.log(post.post_hint); 
+    // -------------------------------------
+    // FOR VIDEO
+    let whatKindOfVideo;
+    let iframeHTML;
+    let dash_url;
+    let hls_url;
+    let fallback_url;
+    let scrubber_media_url;
+
     const isVideo = post.post_hint?.includes('video');
+
     if (isVideo) {
-        let whatKindOfVideo = post.post_hint;
-        if (post.media_embed.content) {
-            iframeHTML = he.decode(post.media_embed.content);
-            iframeHTML = iframeHTML.replace(/width="\d+"/,  'width="100%"').replace(/height="\d+"/,  'height="100%"');
+        whatKindOfVideo = post.post_hint;
+        if (whatKindOfVideo === 'rich:video') {
+            if (post.media_embed.content) {
+                iframeHTML = he.decode(post.media_embed.content);
+                iframeHTML = iframeHTML.replace(/width="\d+"/, 'width="100%"').replace(/height="\d+"/, 'height="100%"');
+            }
+        } else if (whatKindOfVideo === 'hosted:video') {
+            if (post.media.reddit_video) {
+                dash_url = post.media.reddit_video.hash_url;
+                hls_url = post.media.reddit_video.hsl_url;
+                fallback_url = post.media.reddit_video.fallback_url;
+                scrubber_media_url = post.media.reddit_video.scrubber_media_url;
+            }
+
         }
-
     }
-    console.log(iframeHTML);
 
+    const selectedVideoUrl = dash_url || hls_url || fallback_url || scrubber_media_url;
+
+
+
+
+    // --------------------------------------------------------------------------
     // options : 
 
     const LeadImage = ({ src, alt, className }) => (
@@ -72,8 +100,40 @@ const LeadImage = ({ post }) => {
         <img src={src} alt={alt} className={className} />
     );
 
-    const Video = ({ }) => (
-        <div dangerouslySetInnerHTML={{ __html: iframeHTML }} className='lead-video' />
+    const VideoRich = ({ className }) => (
+        <div dangerouslySetInnerHTML={{ __html: iframeHTML }} className={className} />
+    );
+
+
+    // const VideoHostedXX = ({ className }) => (
+    //     <iframe
+    //         className={className}
+    //         src={selectedVideoUrl}
+    //         width="100%"
+    //         height="100%"
+    //         title="Streamable embed"
+    //         frameBorder="0"
+    //         loading='lazy'
+    //         allow=" fullscreen; encrypted-media; picture-in-picture;"
+    //         >
+    //     </iframe>
+    // );
+
+    const VideoHosted = ({ className }) => (
+        <video
+            controls
+            type='video/mp4'
+            className={className}
+            width="100%"
+            height="100%"
+            frameBorder="0"
+            loading='lazy'
+            muted={false} 
+            allow=" fullscreen; encrypted-media; picture-in-picture;"
+        >
+            <source src={selectedVideoUrl}
+            />
+        </video>
     );
 
 
@@ -93,8 +153,14 @@ const LeadImage = ({ post }) => {
         }
 
         if (isVideo) {
-            return <Video />;
+            if (whatKindOfVideo === 'rich:video') {
+                return <VideoRich className='lead-video' />;
+            } else if (whatKindOfVideo === 'hosted:video') {
+                return <VideoHosted className='lead-video-hosted' />
+            }
         }
+
+
 
         if (thumbnailImg) {
             return <ThumbnailImage src={thumbnailImg} alt={post.title} className="thumbnail-img" />;
@@ -106,10 +172,15 @@ const LeadImage = ({ post }) => {
     return (
         <>
             <LeadMedia urlImg={urlImg} mediaImgArr={mediaImgArr} thumbnailImg={thumbnailImg} post={post} />
+
+
         </>
     );
 };
 
 export default LeadImage;
+
+
+
 
 

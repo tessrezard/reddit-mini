@@ -43,6 +43,11 @@
     }
 }
 
+.lead-video-hosted {
+    @extend .lead-video;
+    object-fit: contain;
+}
+
 .thumbnail-img {
     height: 100px;
     object-fit: contain;

@@ -425,34 +425,39 @@ a:-webkit-any-link {
   background-color: none;
 }
 
-.lead-video {
+.lead-video, .lead-video-hosted {
   height: 157px;
   width: 280px;
   margin: auto;
 }
 @media (min-width: 370px) {
-  .lead-video {
+  .lead-video, .lead-video-hosted {
     height: 208px;
     width: 370px;
   }
 }
 @media (min-width: 570px) {
-  .lead-video {
+  .lead-video, .lead-video-hosted {
     height: 320px;
     width: 570px;
   }
 }
 @media (min-width: 768px) {
-  .lead-video {
+  .lead-video, .lead-video-hosted {
     height: 431px;
     width: 768px;
   }
 }
 @media (min-width: 1200px) {
-  .lead-video {
+  .lead-video, .lead-video-hosted {
     height: 538px;
     width: 900px;
   }
+}
+
+.lead-video-hosted {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .thumbnail-img {
