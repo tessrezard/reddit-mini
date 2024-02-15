@@ -42,6 +42,8 @@ function SearchResults() {
         subredditsArr.push(data[n].subreddit)
     }
 
+    const explicit = (post) => post.locked || post.subreddit_type === 'restricted' || post.over_18;
+
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -100,7 +102,7 @@ function SearchResults() {
                             {data.map((post, index) => (
                                 <li key={post.id}>
                                     <div onClick={() => handleLinkClick(post)} >
-                                        {post.locked?
+                                        {explicit(post)?
                                         (<></>)
                                     :(
                                         <Post post={post} aboutSubreddit={dataAboutMultiple[index]} />

@@ -8,18 +8,6 @@ import CommunityIcon from "./CommunityIcon";
 function NavMenu({ }) {
 
 
-    // const topics = [
-    //     { id: 1, name: 'Houseplants', slug: 'houseplants' },
-    //     { id: 2, name: 'Science', slug: 'science' },
-    //     { id: 3, name: 'Web Dev', slug: 'webdev' },
-    //     { id: 4, name: 'Programming', slug: 'programming' },
-    //     { id: 5, name: 'Maps', slug: 'MapPorn' },
-    //     { id: 6, name: 'Sims 4', slug: 'sims4' },
-    //     { id: 7, name: 'Thrift Store Hauls', slug: 'thriftstorehauls' },
-    //     { id: 8, name: 'Pop culture chat', slug: 'popculturechat' },
-    //     { id: 9, name: 'Acotar', slug: 'acotar' },
-    //     { id: 10, name: 'Swimming', slug: 'swimming' },
-    // ]
     const topics = [
         { id: 1, name: 'Houseplants', slug: 'houseplants' },
         { id: 2, name: 'Movies', slug: 'movies' },

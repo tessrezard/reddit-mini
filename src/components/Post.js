@@ -11,10 +11,6 @@ import CommunityIcon from '../components/CommunityIcon';
 
 const Post = ({ post, aboutSubreddit }) => {
 
-
-
-
-
     const { dataAbout } = useSelector((state) => state.aboutSubreddit);
 
     let aboutThisSubreddit;
