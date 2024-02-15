@@ -13,14 +13,12 @@ const Post = ({ post, aboutSubreddit }) => {
 
 
 
-    // const aboutThisSubreddit = () => (aboutSubreddit ? aboutSubreddit : dataAbout);
 
-    
+
     const { dataAbout } = useSelector((state) => state.aboutSubreddit);
 
     let aboutThisSubreddit;
     if (aboutSubreddit) {
-        // console.log('aboutSubreddit', aboutSubreddit);
         aboutThisSubreddit = aboutSubreddit;
     } else {
         aboutThisSubreddit = dataAbout;
@@ -68,11 +66,14 @@ const Post = ({ post, aboutSubreddit }) => {
             return <div>Error: {error}</div>;
         }
     }, [post]);
-    
+
 
     // ----------------------------------------------------------------
     // FOR  POST TITLE
     let postTitle = he.decode(post?.title || '');
+
+
+
 
     return (
         <>
@@ -80,14 +81,14 @@ const Post = ({ post, aboutSubreddit }) => {
                 <div className='post-container'>
 
                     <div className='post-header'>
-                    <Link to={`/r/${post.subreddit}`} className='post-subreddit-container' >
-                                <div className='post-subreddit-icon'>
-                                    <CommunityIcon subreddit={aboutThisSubreddit} />
-                                </div>
-                                <p className='post-subreddit-name'>
-                                    r/{post.subreddit}
-                                </p>
-                            </Link>
+                        <Link to={`/r/${post.subreddit}`} className='post-subreddit-container' >
+                            <div className='post-subreddit-icon'>
+                                <CommunityIcon subreddit={aboutThisSubreddit} />
+                            </div>
+                            <p className='post-subreddit-name'>
+                                r/{post.subreddit}
+                            </p>
+                        </Link>
                         <p className='author-name'>
                             u/{post.author}
                         </p>

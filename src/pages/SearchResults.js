@@ -41,7 +41,6 @@ function SearchResults() {
     for (let n in data) {
         subredditsArr.push(data[n].subreddit)
     }
-    // console.log(subredditsArr);
 
 
     useEffect(() => {
@@ -101,7 +100,11 @@ function SearchResults() {
                             {data.map((post, index) => (
                                 <li key={post.id}>
                                     <div onClick={() => handleLinkClick(post)} >
+                                        {post.locked?
+                                        (<></>)
+                                    :(
                                         <Post post={post} aboutSubreddit={dataAboutMultiple[index]} />
+                                    )}
                                     </div>
                                 </li>
 
