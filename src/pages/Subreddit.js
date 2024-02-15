@@ -108,9 +108,11 @@ function Subreddit() {
                         <>
                             <ul className='subreddit-ul' style={{ listStyle: 'none' }}>
                                 {data.map((post, index) => (
-                                    <div onClick={() => handleLinkClick(post)} key={post.id}>
-                                        <Post post={post} aboutSubreddit={dataAboutMultiple[index]}/>
-                                    </div>
+                                    <li key={post.id}>
+                                        <div onClick={() => handleLinkClick(post)} >
+                                            <Post post={post} aboutSubreddit={dataAboutMultiple[index]} />
+                                        </div>
+                                    </li>
                                 ))}
                             </ul>
                         </>
@@ -118,9 +120,11 @@ function Subreddit() {
                         <>
                             <ul className='subreddit-ul' style={{ listStyle: 'none' }}>
                                 {data.map((post) => (
-                                    <div onClick={() => handleLinkClick(post)} key={post.id}>
-                                        <Post post={post} />
-                                    </div>
+                                    <li key={post.id}>
+                                        <div onClick={() => handleLinkClick(post)} >
+                                            <Post post={post} />
+                                        </div>
+                                    </li>
                                 ))}
                             </ul>
                         </>

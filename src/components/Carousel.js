@@ -16,10 +16,10 @@ const CustomNextArrow = (props) => {
         <div
             className={`${className} arrow-next`}
             style={{
-                 ...style, 
-                 display: "flex", 
-                 right: 50,
-                }}
+                ...style,
+                display: "flex",
+                right: 50,
+            }}
             onClick={handleArrowClick}
         />
     );
@@ -35,12 +35,12 @@ const CustomPrevArrow = (props) => {
         <div
             className={`${className} arrow-prev`}
             style={{
-                ...style, 
+                ...style,
                 display: "flex",
                 left: 50,
-                zIndex: 3, 
+                zIndex: 3,
                 //  background: 'red',
-               }}
+            }}
             onClick={handleArrowClick}
         />
     );
@@ -48,12 +48,12 @@ const CustomPrevArrow = (props) => {
 
 
 const customDots = dots => (
-    <div 
-    style={{
-        margin: 'auto',
-        display: 'flex',
-        justifyContent: 'center',
-    }}
+    <div
+        style={{
+            margin: 'auto',
+            display: 'flex',
+            justifyContent: 'center',
+        }}
     >
         <div
             style={{
@@ -70,7 +70,9 @@ const customDots = dots => (
                 style={{
                     margin: 1,
                     display: 'flex',
-                }}> {dots} </ul>
+                }}>
+                    {dots} 
+            </ul>
         </div>
     </div>
 

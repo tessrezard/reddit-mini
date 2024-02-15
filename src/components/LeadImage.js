@@ -28,12 +28,11 @@ const LeadImage = ({ post }) => {
         const mediaObj = post.media_metadata;
         const keys = Object.keys(mediaObj)
         for (let i = 0; i < keys.length; i++) {
-            const value = mediaObj[keys[i]].s.u;
+            const value = mediaObj[keys[i]].s?.u;
             try {
                 mediaImg = he.decode(value);
                 mediaImgArr.push(mediaImg);
             } catch (error) {
-                // console.error('Error decoding HTML entities:', error);
                 mediaImg = '';
                 mediaImgArr.push('');
             }
@@ -75,7 +74,6 @@ const LeadImage = ({ post }) => {
                 hls_url = post.media.reddit_video.hsl_url;
                 fallback_url = post.media.reddit_video.fallback_url;
                 scrubber_media_url = post.media.reddit_video.scrubber_media_url;
-                console.log(post);
             }
 
         }
@@ -157,8 +155,6 @@ const LeadImage = ({ post }) => {
     return (
         <>
             <LeadMedia urlImg={urlImg} mediaImgArr={mediaImgArr} thumbnailImg={thumbnailImg} post={post} />
-
-
         </>
     );
 };

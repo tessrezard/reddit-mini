@@ -32,7 +32,12 @@ const Post = ({ post, aboutSubreddit }) => {
     const flairBackgroundColor = post.link_flair_background_color;
     //adjust text color to background
     let flairTextColor = post.link_flair_text_color === 'light' ? '#fff' : '#000';
-
+    let flairText;
+    if (post.link_flair_text) {
+        flairText = he.decode(post.link_flair_text);
+    } else {
+        flairText = null;
+    }
 
     // ----------------------------------------------------------------
     // FOR SELF TEXT / TEXT PREVIEW
@@ -90,12 +95,12 @@ const Post = ({ post, aboutSubreddit }) => {
 
                     <div className='post-main'>
 
-                        <p className='post-title'>
+                        <h1 className='post-title'>
                             {postTitle}
-                        </p>
+                        </h1>
 
                         <p className='flair' style={{ backgroundColor: flairBackgroundColor, color: flairTextColor }}>
-                            {post.link_flair_text}
+                            {flairText}
                         </p>
 
                         <div ref={selfTextPreview} className='self-text-preview-wrapper'>

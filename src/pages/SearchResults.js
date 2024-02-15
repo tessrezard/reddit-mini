@@ -99,9 +99,12 @@ function SearchResults() {
                     <>
                         <ul style={{ listStyle: 'none', position: 'relative', bottom: 16 }}>
                             {data.map((post, index) => (
-                                <div onClick={() => handleLinkClick(post)} key={post.id}>
-                                    <Post post={post} aboutSubreddit={dataAboutMultiple[index]} />
-                                </div>
+                                <li key={post.id}>
+                                    <div onClick={() => handleLinkClick(post)} >
+                                        <Post post={post} aboutSubreddit={dataAboutMultiple[index]} />
+                                    </div>
+                                </li>
+
                             ))}
                         </ul>
                     </>
