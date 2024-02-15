@@ -24,11 +24,15 @@ const LeadImage = ({ post }) => {
     // FOR CAROUSSEL 
     let mediaImgArr = [];
     let mediaImg;
+    let value;
     if (post.media_metadata) {
         const mediaObj = post.media_metadata;
         const keys = Object.keys(mediaObj)
         for (let i = 0; i < keys.length; i++) {
-            const value = mediaObj[keys[i]].s?.u;
+            value = mediaObj[keys[i]].s?.u;
+            if ( mediaObj[keys[i]].e == 'AnimatedImage'){
+                value = mediaObj[keys[i]].s?.gif || mediaObj[keys[i]].s?.mp4;
+            } ;
             try {
                 mediaImg = he.decode(value);
                 mediaImgArr.push(mediaImg);
@@ -142,8 +146,6 @@ const LeadImage = ({ post }) => {
                 return <VideoHosted className='lead-video-hosted' />
             }
         }
-
-
 
         if (thumbnailImg) {
             return <ThumbnailImage src={thumbnailImg} alt={post.title} className="thumbnail-img" />;
