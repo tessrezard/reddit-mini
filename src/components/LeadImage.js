@@ -27,7 +27,8 @@ const LeadImage = ({ post }) => {
     let value;
     if (post.media_metadata) {
         const mediaObj = post.media_metadata;
-        const keys = Object.keys(mediaObj)
+        const keys = Object.keys(mediaObj);
+
         for (let i = 0; i < keys.length; i++) {
             value = mediaObj[keys[i]].s?.u;
             if ( mediaObj[keys[i]].e == 'AnimatedImage'){
